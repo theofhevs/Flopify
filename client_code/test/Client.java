@@ -49,23 +49,23 @@ public class Client {
         BufferedReader buffIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         // pOut is used to send data to the server
         PrintWriter pOut = new PrintWriter(clientSocket.getOutputStream(), true);
-
         menu(buffIn, pOut);
     }
+
 
     // method menu to display the menu of the client using a switch case. THe user will choose the action he wants to do by entering a number
     public void menu(BufferedReader buffIn, PrintWriter pOut) {
         try {
-            for (int i = 0; i < 4; i++) 
+            for (int i = 0; i < 4; i++)
                 System.out.println(buffIn.readLine());
 
             int number;
             do {
                 number = commandInput("Please enter a command number (1-3): ");
             } while (number < 1 || number > 4);
-             pOut.println(number);
+            pOut.println(number);
 
-             switch (number) {
+            switch (number) {
                 case 1:
                     displayAvailableMedias(pOut, buffIn);
                     break;
@@ -97,7 +97,6 @@ public class Client {
         System.out.println("display available medias");
         menu(buffIn, pOut);
     }
-
 
     private int commandInput(String message) {
         int number = 0;
@@ -132,6 +131,7 @@ public class Client {
             e.printStackTrace();
         }
     }
+
 
 }
 
