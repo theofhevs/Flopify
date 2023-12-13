@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="931aa563-cf1b-4af0-a681-ca1130127bff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Flopify.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_code/test/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_code/test/SimpleClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/.idea/Flopify.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/client_code/test/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/client_code/test/SimpleClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/server_code/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/server_code/ServerClientInteractions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Flopify/server_code/SimpleServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_code/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_code/ServerClientInteractions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_code/SimpleServer.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2ZJN2xXvVTLmg2hPP13QGZPcmrn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/theof/IdeaProjects/ServerCode&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client_code.test.Client" />
+      <module name="Flopify" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client_code.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server_code.Server" />
+      <module name="Flopify" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server_code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client_code.test.SimpleClient" />
+      <module name="Flopify" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client_code.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server_code.SimpleServer" />
+      <module name="Flopify" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server_code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="Flopify" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.SimpleClient" />
+        <item itemvalue="Application.SimpleServer" />
+        <item itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="931aa563-cf1b-4af0-a681-ca1130127bff" name="Changes" comment="" />
+      <created>1702136018397</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702136018397</updated>
+      <workItem from="1702136019500" duration="108000" />
+      <workItem from="1702136136492" duration="7845000" />
+      <workItem from="1702241266717" duration="21000" />
+      <workItem from="1702295370063" duration="3511000" />
+      <workItem from="1702317198675" duration="2280000" />
+      <workItem from="1702452681652" duration="3169000" />
+      <workItem from="1702457894079" duration="116000" />
+      <workItem from="1702459796460" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
