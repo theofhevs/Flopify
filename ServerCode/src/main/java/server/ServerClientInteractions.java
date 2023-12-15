@@ -50,9 +50,7 @@ public class ServerClientInteractions implements Runnable{
     }
 
     private void listSongs(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception {
-
         System.out.println("list songs");
-
         menu(pOut, bufferIn, clientSocket);
     }
 

@@ -8,8 +8,13 @@ import java.net.Socket;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import commands.CloseConnectionCommand;
+import commands.Command;
+import commands.DisplayAvailableMediasCommand;
+import commands.ShareMediaCommand;
+
 public class Client {
-    Scanner sc = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     // Port of the server
     private int serverPort;
 
@@ -36,8 +41,6 @@ public class Client {
         this.serverName = serverName;
         this.serverPort = 45000;
         ipAddress = localAddress;
-
-
     }
 
     // method to connect the client to the server
@@ -65,37 +68,25 @@ public class Client {
             } while (number < 1 || number > 4);
             pOut.println(number);
 
+            Command command;
             switch (number) {
                 case 1:
-                    displayAvailableMedias(pOut, buffIn);
+                    command = new DisplayAvailableMediasCommand(pOut, buffIn);
                     break;
                 case 2:
-                    shareMediaWithServer(pOut, buffIn);
+                    command = new ShareMediaCommand(pOut, buffIn);
                     break;
                 case 3:
-                    closeConnection();
+                    command = new CloseConnectionCommand();
                     System.exit(0); //used to terminate the client "server" thread as well
                     break;
+                default:
+                    return;
             }
+            command.execute(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private void closeConnection() {
-        System.out.println("closing connection");
-    }
-
-
-    private void shareMediaWithServer(PrintWriter pOut, BufferedReader buffIn) {
-        System.out.println("sharing media with server");
-        menu(buffIn, pOut);
-    }
-
-
-    private void displayAvailableMedias(PrintWriter pOut, BufferedReader buffIn) {
-        System.out.println("display available medias");
-        menu(buffIn, pOut);
     }
 
     private int commandInput(String message) {
@@ -108,7 +99,6 @@ public class Client {
             isInt = true;
 
             try {
-                Scanner scanner = new Scanner(System.in);
                 number = scanner.nextInt();
             } catch (InputMismatchException e) {
                 isInt = false;
