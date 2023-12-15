@@ -1,4 +1,9 @@
 package server;
+import commands.ClientSharesMediaCommand;
+import commands.Command;
+import commands.DisconnectCommand;
+import commands.ListSongs;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,36 +27,23 @@ public class ServerClientInteractions implements Runnable{
     }
 
 
-
-    private void menu(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception{
+    public void menu(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception{
         pOut.println("Commands available:\n1\tList available songs\n2\tShare a song\n3\tDisconnect and close");
-        int command = Integer.parseInt(bufferIn.readLine());
-        switch (command) {
+        int number = Integer.parseInt(bufferIn.readLine());
+
+        Command command = null;
+        switch (number) {
             case 1:
-                listSongs(pOut, bufferIn, clientSocket);
+                 command = new ListSongs(pOut, bufferIn, clientSocket);
                 break;
             case 2:
-                clientSharesMedia(pOut, bufferIn, clientSocket);
+                command = new ClientSharesMediaCommand(pOut, bufferIn, clientSocket);
                 break;
             case 3:
-                disconnect(clientSocket);
+                command = new DisconnectCommand(clientSocket);
         }
-    }
-    private void disconnect(Socket clientSocket) throws IOException {
-        // Close the client connection when done
-        clientSocket.close();
-        System.out.println("Client disconnected: " + clientSocket.getInetAddress());
-    }
 
-    private void clientSharesMedia(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception {
-        System.out.println("client shares media");
-
-        menu(pOut, bufferIn, clientSocket);
-    }
-
-    private void listSongs(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception {
-        System.out.println("list songs");
-        menu(pOut, bufferIn, clientSocket);
+        command.execute(this);
     }
 
     // Method to handle a client connection
