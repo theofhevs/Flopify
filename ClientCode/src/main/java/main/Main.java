@@ -2,6 +2,9 @@ package main;
 import java.net.InetAddress;
 import client.Client;
 
+/**
+ * Main class for the client that will connect to the server
+ */
 public class Main {
     public static void main(String[] args) {
         try {

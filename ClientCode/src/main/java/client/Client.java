@@ -10,9 +10,13 @@ import java.util.Scanner;
 
 import commands.CloseConnectionCommand;
 import commands.Command;
-import commands.DisplayAvailableMediasCommand;
+import commands.DisplayAvailableSongsCommand;
 import commands.ShareMediaCommand;
 
+/**
+ * Client class that will connect to the server and send commands to it using the Command pattern
+ *
+ */
 public class Client {
     Scanner scanner = new Scanner(System.in);
     // Port of the server
@@ -27,8 +31,18 @@ public class Client {
     // client Socket
     private Socket clientSocket;
 
-
-    // Client constructor in the case that the client specify the server's port
+    /*
+     * Getter of the ipAddress attribute
+     */
+    public InetAddress getIpAddress() {
+        return ipAddress;
+    }
+    /*
+     * Constructor of the client class in the case that the client specify the server's port
+     * @param serverName : name of the server
+     * @param serverPort : port of the server
+     * @param localAddress : IP of the client
+     */
     public Client(String serverName, int serverPort, InetAddress localAddress) {
         this.serverName = serverName;
         this.serverPort = serverPort;
@@ -36,14 +50,21 @@ public class Client {
     }
 
 
-    // Client constructor in the case that we use the basic server's port
+    /*
+     * Constructor of the client class in the case that the client doesn't specify the server's port
+     * @param serverName : name of the server
+     * @param localAddress : IP of the client
+     */
     public Client(String serverName, InetAddress localAddress) {
         this.serverName = serverName;
         this.serverPort = 45000;
         ipAddress = localAddress;
     }
 
-    // method to connect the client to the server
+    /*
+     * Method that will connect the client to the server and create the socket and the input and output streams
+     * 
+     */
     public void connectToServer() throws Exception {
         System.out.println("connexion to the server " + serverName + " on port " + serverPort);
         clientSocket = new Socket(serverName, serverPort);
@@ -55,10 +76,14 @@ public class Client {
         menu(buffIn, pOut);
     }
 
-
-    // method menu to display the menu of the client using a switch case. THe user will choose the action he wants to do by entering a number
+    /*
+     * Method that will display the menu to the user and ask him to enter a command number between 1 and 3
+     * @param buffIn : BufferedReader used to read the data that are received by the server
+     * @param pOut : PrintWriter used to send data to the server
+     */
     public void menu(BufferedReader buffIn, PrintWriter pOut) {
         try {
+            System.out.println();
             for (int i = 0; i < 4; i++)
                 System.out.println(buffIn.readLine());
 
@@ -71,14 +96,13 @@ public class Client {
             Command command;
             switch (number) {
                 case 1:
-                    command = new DisplayAvailableMediasCommand(pOut, buffIn);
+                    command = new DisplayAvailableSongsCommand(pOut, buffIn);
                     break;
                 case 2:
                     command = new ShareMediaCommand(pOut, buffIn);
                     break;
                 case 3:
-                    command = new CloseConnectionCommand();
-                    System.exit(0); //used to terminate the client "server" thread as well
+                    command = new CloseConnectionCommand(pOut, buffIn);
                     break;
                 default:
                     return;
@@ -89,6 +113,10 @@ public class Client {
         }
     }
 
+    /*
+     * Method that will ask the user to enter a number and return it
+     * @param message : message that will be displayed to the user
+     */
     private int commandInput(String message) {
         int number = 0;
         boolean isInt;
@@ -106,7 +134,4 @@ public class Client {
         } while (!isInt);
         return number;
     }
-
-
-
 }

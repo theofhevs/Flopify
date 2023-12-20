@@ -4,23 +4,39 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
+import java.util.ArrayList;
+
+import javax.print.attribute.standard.Media;
 
 
+/*
+ * Server class to handle the server side of the application
+ * 
+ */
 public class Server {
     // Server port
     private int serverPort;
 
     private static Server serverInstance  = null;
 
-    // Private constructor to prevent instantiation
+    private ArrayList<Music> storedSongs = new ArrayList<>(50);
+
+    /*
+     * Private constructor for the server class to prevent multiple instances
+     */
     private Server() {
     }
 
+    /*
+     * Public constructor for the server class to set the server port
+     */
     public Server(int serverPort) {
         this.serverPort = serverPort;
     }
 
-    // singleton Pattern
+    /*
+     * Method to get the server instance and create one if it doesn't exist
+     */
     public static Server getServer(){
         if (serverInstance == null) {
             serverInstance = new Server();
@@ -28,7 +44,9 @@ public class Server {
         return serverInstance;
     }
 
-    // Method to start the server
+    /*
+     * Method to start the server and listen for incoming connections
+     */
     public void startServer() {
 
         // ServerSocket for listening to incoming connections
@@ -49,5 +67,12 @@ public class Server {
         }
     }
 
+    /*
+     * Getter for the stored songs
+     * @return the stored songs
+     */
+    public ArrayList<Music> getStoredSongs() {
+        return storedSongs;
+    }
 
 }
