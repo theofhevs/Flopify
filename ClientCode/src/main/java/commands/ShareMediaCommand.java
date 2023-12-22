@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.Scanner;
 
 /**
@@ -16,6 +17,8 @@ public class ShareMediaCommand implements Command {
     private final PrintWriter pOut;
     private final BufferedReader buffIn;
 
+    private  Socket clientSocket;
+
     private Client client;
 
     /*
@@ -23,7 +26,8 @@ public class ShareMediaCommand implements Command {
      * @param pOut : output stream of the client
      * @param buffIn : input stream of the client
      */
-    public ShareMediaCommand(PrintWriter pOut, BufferedReader buffIn) {
+    public ShareMediaCommand(PrintWriter pOut, BufferedReader buffIn, Socket clientSocket) {
+        this.clientSocket = clientSocket;
         this.pOut = pOut;
         this.buffIn = buffIn;
     }
@@ -64,7 +68,7 @@ public class ShareMediaCommand implements Command {
             pOut.println(musicPath);
             pOut.println(musicPath.substring(musicPath.lastIndexOf("\\")+1));
             pOut.println(client.getIpAddress());
-            pOut.println("45000");
+            pOut.println(clientSocket.getLocalPort());
             
             client.menu(buffIn, pOut); // Call the menu after executing the command
         } catch (IOException e) {

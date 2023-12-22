@@ -8,7 +8,7 @@ public class ClientConnection implements Runnable{
     /**
      * Ip address of the server
      */
-    
+    // recup le port du client qui est stocké dans la arraylist Music
     private final int port = 45001;
 
     private InetAddress localAddress;

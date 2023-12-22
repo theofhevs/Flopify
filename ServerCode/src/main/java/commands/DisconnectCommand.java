@@ -39,7 +39,7 @@ public class DisconnectCommand implements Command {
         this.serverClientInteractions = serverClientInteractions;
         try { 
             removeSongs(buffIn, clientSocket.getInetAddress());
-            System.out.println("Client " + clientSocket.getInetAddress() + " disconnects");
+            System.out.println("Client : " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " disconnects");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -24,6 +24,8 @@ public class ClientInteractions implements Runnable {
         }
     }
     public void stream(BufferedReader buffIn){
+
+
         
     }
     

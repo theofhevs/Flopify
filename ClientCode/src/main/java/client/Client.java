@@ -1,6 +1,7 @@
 package client;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
@@ -43,7 +44,8 @@ public class Client {
      * @param serverPort : port of the server
      * @param localAddress : IP of the client
      */
-    public Client(String serverName, int serverPort, InetAddress localAddress) {
+    public Client(String serverName, int serverPort, InetAddress localAddress) throws IOException {
+        clientSocket = new Socket(localAddress, serverPort);
         this.serverName = serverName;
         this.serverPort = serverPort;
         ipAddress = localAddress;
@@ -90,20 +92,21 @@ public class Client {
             int number;
             do {
                 number = commandInput("Please enter a command number (1-3): ");
+                // changé condition car ne prend pas en compte les lettres
             } while (number < 1 || number > 4);
             pOut.println(number);
-
             Command command;
             switch (number) {
                 case 1:
                     command = new DisplayAvailableSongsCommand(pOut, buffIn);
                     break;
                 case 2:
-                    command = new ShareMediaCommand(pOut, buffIn);
+                    command = new ShareMediaCommand(pOut, buffIn,clientSocket);
                     break;
                 case 3:
                     command = new CloseConnectionCommand(pOut, buffIn);
                     break;
+
                 default:
                     return;
             }

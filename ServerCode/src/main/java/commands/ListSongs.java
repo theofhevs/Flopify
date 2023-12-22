@@ -45,7 +45,7 @@ public class ListSongs implements Command{
             //print all informations of the array list of songs
             for (int i = 0; i < server.getStoredSongs().size(); i++) {
                 pOut.println(server.getStoredSongs().get(i).getMusicName());
-                pOut.println(server.getStoredSongs().get(i).getIpAddress());
+                pOut.println(server.getStoredSongs().get(i).getPort());
             }
 
             serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command

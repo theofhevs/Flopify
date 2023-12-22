@@ -43,10 +43,12 @@ public class DisplayAvailableSongsCommand implements Command {
             }
             for (int i = 1; i <= numberOfSongs; i++) {
                 String musicName = buffIn.readLine();
-                String ipAddress = buffIn.readLine();
+                String port = buffIn.readLine();
 
-                System.out.println(i + ": " + musicName + ", IP: " + ipAddress);
+                System.out.println(i + ": " + musicName + ", Port: " + port);
             }
+
+
             client.menu(buffIn, pOut); // Call the menu after executing the command
         } catch (Exception e) {
         }

@@ -49,7 +49,7 @@ public class ServerClientInteractions implements Runnable{
     public void menu(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception{
         pOut.println("Commands available:\n1\tList available songs\n2\tShare a song\n3\tDisconnect and close");
         int number = Integer.parseInt(bufferIn.readLine());
-
+        //create a array for the Command pattern
         Command command = null;
         switch (number) {
             case 1:
@@ -70,7 +70,7 @@ public class ServerClientInteractions implements Runnable{
      */
     private void handleClientConnection(Socket clientSocket) {
         try {
-            System.out.println("Client connected: " + clientSocket.getInetAddress());
+            System.out.println("Client connected: " + clientSocket.getInetAddress() + " : " + clientSocket.getPort());
 
             // buffIn is used to read data from the client
             BufferedReader buffIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
