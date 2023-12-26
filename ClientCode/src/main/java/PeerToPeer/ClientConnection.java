@@ -9,11 +9,14 @@ public class ClientConnection implements Runnable{
      * Ip address of the server
      */
     // recup le port du client qui est stocké dans la arraylist Music
-    private final int port = 45001;
+    private  int port;
 
     private InetAddress localAddress;
+    private String musicPath;
 
-    public ClientConnection(InetAddress localAddress) {
+    public ClientConnection(InetAddress localAddress,String musicPath,int port) {
+        this.port = port;
+        this.musicPath = musicPath;
         this.localAddress = localAddress;
     }
 
@@ -28,7 +31,7 @@ public class ClientConnection implements Runnable{
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                new Thread(new ClientInteractions(clientSocket)).start();
+                new Thread(new ClientInteractions(clientSocket,musicPath)).start();
             }
 
         } catch (Exception e) {

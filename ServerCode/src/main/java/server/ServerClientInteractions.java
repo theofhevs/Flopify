@@ -4,10 +4,7 @@ import commands.Command;
 import commands.DisconnectCommand;
 import commands.ListSongs;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -60,9 +57,52 @@ public class ServerClientInteractions implements Runnable{
                 break;
             case 3:
                 command = new DisconnectCommand(pOut, bufferIn, clientSocket, server);
+                break;
+                // --------------------- Send Audio ---------------------
+            /*case 4:
+                sendMusic("C:\\Users\\theof\\Desktop\\ryanGosling.mp3", clientSocket);
+                break;*/
+                // --------------------- Send Audio ---------------------
         }
         command.execute(this);
     }
+
+    // --------------------- Send Audio ---------------------
+
+   /* public void sendMusic(String musicFilePath, Socket clientSocket) {
+        try (
+                BufferedInputStream bis = new BufferedInputStream(new FileInputStream(musicFilePath));
+                DataOutputStream dos = new DataOutputStream(clientSocket.getOutputStream());
+                OutputStream outStream = clientSocket.getOutputStream()) {
+
+            byte[] buffer = new byte[4096];
+            int bytesRead;
+
+            // Envoyer le nom du fichier
+            String fileName = new File(musicFilePath).getName();
+            dos.writeUTF(fileName);
+            dos.writeUTF("Playing music");
+
+            // Attendre un court instant pour permettre au client de se préparer à recevoir les données audio
+            Thread.sleep(1000);
+
+            // Envoyer le contenu du fichier
+            while ((bytesRead = bis.read(buffer)) != -1) {
+                outStream.write(buffer, 0, bytesRead);
+            }
+            outStream.flush();
+
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }*/
+    // --------------------- Send Audio ---------------------
+
+
+
+
+
 
     /*
      * Method to handle the client connection and start the server-side logic

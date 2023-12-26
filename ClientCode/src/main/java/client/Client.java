@@ -1,9 +1,6 @@
 package client;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.InputMismatchException;
@@ -13,10 +10,11 @@ import commands.CloseConnectionCommand;
 import commands.Command;
 import commands.DisplayAvailableSongsCommand;
 import commands.ShareMediaCommand;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
 /**
  * Client class that will connect to the server and send commands to it using the Command pattern
- *
  */
 public class Client {
     Scanner scanner = new Scanner(System.in);
@@ -38,6 +36,7 @@ public class Client {
     public InetAddress getIpAddress() {
         return ipAddress;
     }
+
     /*
      * Constructor of the client class in the case that the client specify the server's port
      * @param serverName : name of the server
@@ -65,7 +64,7 @@ public class Client {
 
     /*
      * Method that will connect the client to the server and create the socket and the input and output streams
-     * 
+     *
      */
     public void connectToServer() throws Exception {
         System.out.println("connexion to the server " + serverName + " on port " + serverPort);
@@ -76,6 +75,13 @@ public class Client {
         // pOut is used to send data to the server
         PrintWriter pOut = new PrintWriter(clientSocket.getOutputStream(), true);
         menu(buffIn, pOut);
+    }
+
+    public void connectToClient() throws Exception {
+
+
+
+
     }
 
     /*
@@ -93,7 +99,7 @@ public class Client {
             do {
                 number = commandInput("Please enter a command number (1-3): ");
                 // changé condition car ne prend pas en compte les lettres
-            } while (number < 1 || number > 4);
+            } while (number < 1 || number > 3);
             pOut.println(number);
             Command command;
             switch (number) {
@@ -101,12 +107,15 @@ public class Client {
                     command = new DisplayAvailableSongsCommand(pOut, buffIn);
                     break;
                 case 2:
-                    command = new ShareMediaCommand(pOut, buffIn,clientSocket);
+                    command = new ShareMediaCommand(pOut, buffIn, clientSocket);
                     break;
                 case 3:
                     command = new CloseConnectionCommand(pOut, buffIn);
                     break;
-
+                    // ------------------------------  playAudio (TEST) --------------------------------
+                /*case 4 :
+                    playAudio(clientSocket.getInputStream());*/
+                    // ------------------------------  playAudio (TEST) --------------------------------
                 default:
                     return;
             }
@@ -115,6 +124,20 @@ public class Client {
             e.printStackTrace();
         }
     }
+// ------------------------------  playAudio (TEST) --------------------------------
+    /*public void playAudio(InputStream inputStream) {
+        try (BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream)) {
+
+            Player player = new Player(bufferedInputStream);
+            player.play();
+
+        } catch (JavaLayerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+// ------------------------------  playAudio (TEST) --------------------------------
 
     /*
      * Method that will ask the user to enter a number and return it

@@ -3,6 +3,7 @@ package commands;
 import server.Server;
 import server.ServerClientInteractions;
 
+import javax.swing.table.TableRowSorter;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -38,6 +39,7 @@ public class ListSongs implements Command{
     @Override
     public void execute(ServerClientInteractions serverClientInteractions) {
         this.serverClientInteractions = serverClientInteractions;
+
         System.out.println("Client lists songs");
         try {
             pOut.println(server.getStoredSongs().size());
@@ -48,7 +50,34 @@ public class ListSongs implements Command{
                 pOut.println(server.getStoredSongs().get(i).getPort());
             }
 
-            serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
+            if (server.getStoredSongs().size() == 0){
+                serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
+            }
+            else {
+                pOut.println("Would you like to stream a song? (y/n) : ");
+
+            }
+
+
+            char ClientAnswer = buffIn.readLine().charAt(0);
+            if (ClientAnswer == 'n') {
+                serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
+            }
+
+            else if (ClientAnswer == 'y') {
+                pOut.println("Enter the number of the song you want to stream : ");
+                int songNumber = Integer.parseInt(buffIn.readLine());
+                for (int i = 0; i < server.getStoredSongs().size(); i++) {
+                    if ( i+1 == songNumber) {
+                        pOut.println(server.getStoredSongs().get(i).getmusicPath());
+                        pOut.println(server.getStoredSongs().get(i).getPort());
+                    }
+
+                }
+
+            }
+
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
