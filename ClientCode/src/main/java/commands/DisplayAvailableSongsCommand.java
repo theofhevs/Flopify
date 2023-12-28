@@ -81,20 +81,17 @@ public class DisplayAvailableSongsCommand implements Command {
             String musicPath = buffIn.readLine();
             int portToConnect = Integer.parseInt(buffIn.readLine());
             System.out.println("Music path : "+musicPath);
-            System.out.println("Port to connect : " + portToConnect); //TODO: USE THIS PORT TO CONNECT TO THE LISTENING SERVER    
+            System.out.println("Port to connect : " + portToConnect);
 
 
             // connect to the listening server to stream the musics
-            Socket listeningSocket = new Socket("127.0.0.1",40001); //TODO: change the port to use the correct one
-            // TODO: the port to connect is not the right port is the port given for the connection between the client and the server not the listening server port
+            Socket listeningSocket = new Socket("127.0.0.1",portToConnect);
             // create the sender to send information to the server
             PrintWriter out = new PrintWriter(listeningSocket.getOutputStream(), true);
             //send the path for the musics to stream
             out.println(musicPath);
 
-            //TIPS => attendre une info du serveur pour etre sur
 
-          
             // Lisen the stream of the listening server
             InputStream is = listeningSocket.getInputStream();
             BufferedInputStream bis = new BufferedInputStream(is);

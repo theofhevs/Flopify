@@ -2,6 +2,7 @@ package client;
 
 import java.io.*;
 import java.net.InetAddress;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -32,6 +33,12 @@ public class Client {
     // client Socket
     private Socket clientSocket;
 
+    private int initialPort;
+
+    public int getInitialPort() {
+        return initialPort;
+    }
+
     /*
      * Getter of the ipAddress attribute
      */
@@ -42,9 +49,9 @@ public class Client {
     /*
      * Constructor of the client class in the case that the client doesn't specify
      * the server's port
-     * 
+     *
      * @param serverName : name of the server
-     * 
+     *
      * @param localAddress : IP of the client
      */
     public Client(String serverName, InetAddress localAddress) {
@@ -52,17 +59,15 @@ public class Client {
         this.serverPort = 45000;
         ipAddress = localAddress;
 
-        // start listening server
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter port to listen on: ");
-        int port = scanner.nextInt();
+
+        initialPort = getAvailablePort();
 
         Thread server = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-              
-                    ClientConnection listeningServer = ClientConnection.getClientConnection(port);
+
+                    ClientConnection listeningServer = ClientConnection.getClientConnection(initialPort);
                     listeningServer.startServer();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -71,6 +76,25 @@ public class Client {
         });
         server.start();
 
+    }
+
+    private int getAvailablePort() {
+        for (int port = 45001; port < 65535; port++) {
+            if (!isPortInUse(port)) {
+                return port;
+            }
+        }
+
+        return -1;
+    }
+
+    private boolean isPortInUse(int port) {
+        try {
+            new ServerSocket(port).close();
+            return false;
+        } catch (IOException e) {
+            return true;
+        }
     }
 
     /*
@@ -96,10 +120,10 @@ public class Client {
     /*
      * Method that will display the menu to the user and ask him to enter a command
      * number between 1 and 3
-     * 
+     *
      * @param buffIn : BufferedReader used to read the data that are received by the
      * server
-     * 
+     *
      * @param pOut : PrintWriter used to send data to the server
      */
     public void menu(BufferedReader buffIn, PrintWriter pOut) {
@@ -147,10 +171,10 @@ public class Client {
      * public void playAudio(InputStream inputStream) {
      * try (BufferedInputStream bufferedInputStream = new
      * BufferedInputStream(inputStream)) {
-     * 
+     *
      * Player player = new Player(bufferedInputStream);
      * player.play();
-     * 
+     *
      * } catch (JavaLayerException e) {
      * e.printStackTrace();
      * } catch (IOException e) {
@@ -163,7 +187,7 @@ public class Client {
 
     /*
      * Method that will ask the user to enter a number and return it
-     * 
+     *
      * @param message : message that will be displayed to the user
      */
     private int commandInput(String message) {

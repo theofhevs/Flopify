@@ -50,7 +50,8 @@ public class ClientSharesMediaCommand implements Command{
             String songName = buffIn.readLine();
             String ipAddress = buffIn.readLine();
             String port = buffIn.readLine();
-            Music music = new Music(path, songName, ipAddress, port);
+            int initialPort = Integer.parseInt(buffIn.readLine());
+            Music music = new Music(path, songName, ipAddress, port,initialPort);
             System.out.println("Client " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " share a songs");
             server.getStoredSongs().add(music);
             serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command

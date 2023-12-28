@@ -6,11 +6,17 @@ public class Music {
     private String ipAddress;
     private String port;
 
-    public Music(String musicPath, String musicName, String ipAddress, String port) {
+    private int initialPort;
+
+    public Music(String musicPath, String musicName, String ipAddress, String port, int initialPort) {
         this.musicPath = musicPath;
         this.musicName = musicName;
         this.ipAddress = ipAddress;
         this.port = port;
+        this.initialPort = initialPort;
+    }
+    public int getInitialPort() {
+        return initialPort;
     }
 
     public String getmusicPath() {
