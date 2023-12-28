@@ -78,11 +78,12 @@ public class DisplayAvailableSongsCommand implements Command {
             };
             pOut.println(songNumber);
 
+
+
             String musicPath = buffIn.readLine();
             int portToConnect = Integer.parseInt(buffIn.readLine());
             System.out.println("Music path : "+musicPath);
             System.out.println("Port to connect : " + portToConnect);
-
 
             // connect to the listening server to stream the musics
             Socket listeningSocket = new Socket("127.0.0.1",portToConnect);

@@ -3,12 +3,8 @@ import commands.ClientSharesMediaCommand;
 import commands.Command;
 import commands.DisconnectCommand;
 import commands.ListSongs;
-
 import java.io.*;
-import java.net.InetAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 /*
  * Class to handle the interactions between the server and the client and the server-side logic
@@ -62,11 +58,6 @@ public class ServerClientInteractions implements Runnable{
         }
         command.execute(this);
     }
-
-
-
-
-
 
 
     /*

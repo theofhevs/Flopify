@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import PeerToPeer.ClientConnection;
@@ -12,8 +11,7 @@ import commands.CloseConnectionCommand;
 import commands.Command;
 import commands.DisplayAvailableSongsCommand;
 import commands.ShareMediaCommand;
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
+
 
 /**
  * Client class that will connect to the server and send commands to it using
@@ -162,21 +160,4 @@ public class Client {
         }
     }
 
-    private int commandInput(String message) {
-        int number = 0;
-        boolean isInt;
-
-        // ask the user to enter a number while the input is not an integer
-        do {
-            System.out.println(message);
-            isInt = true;
-
-            try {
-                number = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                isInt = false;
-            }
-        } while (!isInt);
-        return number;
-    }
 }
