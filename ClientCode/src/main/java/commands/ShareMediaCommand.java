@@ -68,7 +68,7 @@ public class ShareMediaCommand implements Command {
             pOut.println(musicPath);
             pOut.println(musicPath.substring(musicPath.lastIndexOf("\\")+1));
             pOut.println(client.getIpAddress());
-            pOut.println(clientSocket.getLocalPort());
+            pOut.println(clientSocket.getLocalPort()); //TODO : send listening port
             
             client.menu(buffIn, pOut); // Call the menu after executing the command
         } catch (IOException e) {

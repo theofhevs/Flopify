@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import PeerToPeer.ClientConnection;
 import commands.CloseConnectionCommand;
 import commands.Command;
 import commands.DisplayAvailableSongsCommand;
@@ -14,7 +15,8 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
 /**
- * Client class that will connect to the server and send commands to it using the Command pattern
+ * Client class that will connect to the server and send commands to it using
+ * the Command pattern
  */
 public class Client {
     Scanner scanner = new Scanner(System.in);
@@ -24,7 +26,7 @@ public class Client {
     // IP of the client
     private InetAddress ipAddress;
 
-    //Name of the Server
+    // Name of the Server
     private String serverName;
 
     // client Socket
@@ -38,32 +40,42 @@ public class Client {
     }
 
     /*
-     * Constructor of the client class in the case that the client specify the server's port
+     * Constructor of the client class in the case that the client doesn't specify
+     * the server's port
+     * 
      * @param serverName : name of the server
-     * @param serverPort : port of the server
-     * @param localAddress : IP of the client
-     */
-    public Client(String serverName, int serverPort, InetAddress localAddress) throws IOException {
-        clientSocket = new Socket(localAddress, serverPort);
-        this.serverName = serverName;
-        this.serverPort = serverPort;
-        ipAddress = localAddress;
-    }
-
-
-    /*
-     * Constructor of the client class in the case that the client doesn't specify the server's port
-     * @param serverName : name of the server
+     * 
      * @param localAddress : IP of the client
      */
     public Client(String serverName, InetAddress localAddress) {
         this.serverName = serverName;
         this.serverPort = 45000;
         ipAddress = localAddress;
+
+        // start listening server
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter port to listen on: ");
+        int port = scanner.nextInt();
+
+        Thread server = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+              
+                    ClientConnection listeningServer = ClientConnection.getClientConnection(port);
+                    listeningServer.startServer();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        server.start();
+
     }
 
     /*
-     * Method that will connect the client to the server and create the socket and the input and output streams
+     * Method that will connect the client to the server and create the socket and
+     * the input and output streams
      *
      */
     public void connectToServer() throws Exception {
@@ -79,14 +91,15 @@ public class Client {
 
     public void connectToClient() throws Exception {
 
-
-
-
     }
 
     /*
-     * Method that will display the menu to the user and ask him to enter a command number between 1 and 3
-     * @param buffIn : BufferedReader used to read the data that are received by the server
+     * Method that will display the menu to the user and ask him to enter a command
+     * number between 1 and 3
+     * 
+     * @param buffIn : BufferedReader used to read the data that are received by the
+     * server
+     * 
      * @param pOut : PrintWriter used to send data to the server
      */
     public void menu(BufferedReader buffIn, PrintWriter pOut) {
@@ -112,10 +125,14 @@ public class Client {
                 case 3:
                     command = new CloseConnectionCommand(pOut, buffIn);
                     break;
-                    // ------------------------------  playAudio (TEST) --------------------------------
-                /*case 4 :
-                    playAudio(clientSocket.getInputStream());*/
-                    // ------------------------------  playAudio (TEST) --------------------------------
+                // ------------------------------ playAudio (TEST)
+                // --------------------------------
+                /*
+                 * case 4 :
+                 * playAudio(clientSocket.getInputStream());
+                 */
+                // ------------------------------ playAudio (TEST)
+                // --------------------------------
                 default:
                     return;
             }
@@ -124,30 +141,36 @@ public class Client {
             e.printStackTrace();
         }
     }
-// ------------------------------  playAudio (TEST) --------------------------------
-    /*public void playAudio(InputStream inputStream) {
-        try (BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream)) {
-
-            Player player = new Player(bufferedInputStream);
-            player.play();
-
-        } catch (JavaLayerException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-// ------------------------------  playAudio (TEST) --------------------------------
+    // ------------------------------ playAudio (TEST)
+    // --------------------------------
+    /*
+     * public void playAudio(InputStream inputStream) {
+     * try (BufferedInputStream bufferedInputStream = new
+     * BufferedInputStream(inputStream)) {
+     * 
+     * Player player = new Player(bufferedInputStream);
+     * player.play();
+     * 
+     * } catch (JavaLayerException e) {
+     * e.printStackTrace();
+     * } catch (IOException e) {
+     * e.printStackTrace();
+     * }
+     * }
+     */
+    // ------------------------------ playAudio (TEST)
+    // --------------------------------
 
     /*
      * Method that will ask the user to enter a number and return it
+     * 
      * @param message : message that will be displayed to the user
      */
     private int commandInput(String message) {
         int number = 0;
         boolean isInt;
 
-        //ask the user to enter a number while the input is not an integer
+        // ask the user to enter a number while the input is not an integer
         do {
             System.out.println(message);
             isInt = true;

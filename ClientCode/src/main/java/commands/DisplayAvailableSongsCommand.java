@@ -2,10 +2,11 @@ package commands;
 
 import PeerToPeer.ClientConnection;
 import client.Client;
+import javazoom.jl.player.Player;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.util.Scanner;
 
 /**
@@ -77,15 +78,37 @@ public class DisplayAvailableSongsCommand implements Command {
             };
             pOut.println(songNumber);
 
-
             String musicPath = buffIn.readLine();
             int portToConnect = Integer.parseInt(buffIn.readLine());
             System.out.println("Music path : "+musicPath);
-            System.out.println("Port to connect : "+portToConnect);
+            System.out.println("Port to connect : " + portToConnect); //TODO: USE THIS PORT TO CONNECT TO THE LISTENING SERVER    
 
-            ClientConnection clientConnection = new ClientConnection(InetAddress.getLocalHost(),musicPath,portToConnect);
-            clientConnection.run();
 
+            // connect to the listening server to stream the musics
+            Socket listeningSocket = new Socket("127.0.0.1",40001); //TODO: change the port to use the correct one
+            // TODO: the port to connect is not the right port is the port given for the connection between the client and the server not the listening server port
+            // create the sender to send information to the server
+            PrintWriter out = new PrintWriter(listeningSocket.getOutputStream(), true);
+            //send the path for the musics to stream
+            out.println(musicPath);
+
+            //TIPS => attendre une info du serveur pour etre sur
+
+          
+            // Lisen the stream of the listening server
+            InputStream is = listeningSocket.getInputStream();
+            BufferedInputStream bis = new BufferedInputStream(is);
+            try {
+                //create the player 
+                Player player = new Player(bis);
+                //play the stream
+                player.play();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+          
 
 
         } catch (Exception e) {

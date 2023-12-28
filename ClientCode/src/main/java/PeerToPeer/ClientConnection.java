@@ -1,37 +1,67 @@
 package PeerToPeer;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.*;
+import java.util.ArrayList;
 
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
+import javax.print.attribute.standard.Media;
 
-public class ClientConnection implements Runnable{
-    /**
-     * Ip address of the server
+import client.Music;
+
+
+/*
+ * Server class to handle the server side of the application
+ * 
+ */
+public class ClientConnection {
+    // Server port
+    private int listeningPort;
+
+    private static ClientConnection ClientConnectionInstance  = null;
+
+    private ArrayList<Music> storedSongs = new ArrayList<>(50);
+
+    /*
+     * Private constructor for the server class to prevent multiple instances
      */
-    // recup le port du client qui est stocké dans la arraylist Music
-    private  int port;
-
-    private InetAddress localAddress;
-    private String musicPath;
-
-    public ClientConnection(InetAddress localAddress,String musicPath,int port) {
-        this.port = port;
-        this.musicPath = musicPath;
-        this.localAddress = localAddress;
+    private ClientConnection() {
     }
 
-    @Override
-    public void run() {
+    /*
+     * Public constructor for the server class to set the server port
+     */
+    private ClientConnection(int serverPort) {
+        this.listeningPort = serverPort;
+    }
+
+    /*
+     * Method to get the server instance and create one if it doesn't exist
+     */
+    public static ClientConnection getClientConnection(int serverPort){
+        if (ClientConnectionInstance == null) {
+            ClientConnectionInstance = new ClientConnection(serverPort);
+        }
+        return ClientConnectionInstance;
+    }
+
+    /*
+     * Method to start the server and listen for incoming connections
+     */
+    public void startServer() {
+
         // ServerSocket for listening to incoming connections
-        ServerSocket serverSocket;
+        ServerSocket listeningSocket;
 
         try {
-            System.out.println("Establishing a connection with " + localAddress);
-            serverSocket = new ServerSocket(port, 5, localAddress);
+            System.out.println("Server is starting on port " + listeningPort);
+            listeningSocket = new ServerSocket(listeningPort);
+            System.out.println("Server is now listening for incoming connections...");
 
             while (true) {
-                Socket clientSocket = serverSocket.accept();
-                new Thread(new ClientInteractions(clientSocket,musicPath)).start();
+                Socket clientSocket = listeningSocket.accept();
+                new Thread(new ClientInteractions(clientSocket)).start();
             }
 
         } catch (Exception e) {
@@ -39,5 +69,12 @@ public class ClientConnection implements Runnable{
         }
     }
 
-    
+    /*
+     * Getter for the stored songs
+     * @return the stored songs
+     */
+    public ArrayList<Music> getStoredSongs() {
+        return storedSongs;
+    }
+
 }
