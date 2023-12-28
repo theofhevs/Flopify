@@ -4,6 +4,9 @@ import PeerToPeer.ClientConnection;
 import client.Client;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
+import javazoom.jl.player.advanced.AdvancedPlayer;
+import javazoom.jl.player.advanced.PlaybackEvent;
+import javazoom.jl.player.advanced.PlaybackListener;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -70,7 +73,6 @@ public class DisplayAvailableSongsCommand implements Command {
                 return;
             }
 
-
             System.out.println(buffIn.readLine());
             int songNumber = sc.nextInt();
 
@@ -87,49 +89,146 @@ public class DisplayAvailableSongsCommand implements Command {
             System.out.println("Music path : " + musicPath);
             System.out.println("Port to connect : " + portToConnect);
 
-            // connect to the listening server to stream the musics
-            Socket listeningSocket = new Socket("127.0.0.1", portToConnect);
-            // create the sender to send information to the server
-            PrintWriter out = new PrintWriter(listeningSocket.getOutputStream(), true);
-            //send the path for the musics to stream
-            out.println(musicPath);
-
-            // Lisen the stream of the listening server
-            InputStream is = listeningSocket.getInputStream();
+            var is = getInputStreamFromServer(portToConnect, musicPath, "127.0.0.1");
             BufferedInputStream bis = new BufferedInputStream(is);
-            // Create the player
-            Player player = new Player(bis);
-            Thread userInputThread = new Thread(() -> {
-                try {
-                    Scanner scanner = new Scanner(System.in);
-                    char choice;
-                    do {
-                        System.out.println("Write 'a' to stop the music");
-                        choice = scanner.next().charAt(0);
+            final int[] pausedOnFrame = {0};
+            // create the player to play the music
+            AdvancedPlayer player = null;
+            try {
+                player = new AdvancedPlayer(bis);
+                player.setPlayBackListener(new PlaybackListener() {
+                    @Override
+                    public void playbackFinished(PlaybackEvent event) {
+                        pausedOnFrame[0] = event.getFrame();
+                    }
+                });
 
-                        if (choice == 'S' || choice == 's') {
-                            System.out.println("Music stopped");
-                            player.close();
-                            pOut.println("done");
-                            client.menu(buffIn, pOut);
-                        } else {
-                            System.out.println("You can only enter the letter 'S'. Try again.");
-                        }
+            } catch (JavaLayerException e) {
+                throw new RuntimeException(e);
+            }
 
-                    } while (choice != 'S' || choice != 's');
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
+            var userInputRunnable = new userInputThread(player, is, client,pOut,buffIn,pausedOnFrame);
+            var myThread = new Thread(userInputRunnable);
+            myThread.start();
+            player.play(pausedOnFrame[0], Integer.MAX_VALUE);
+            myThread.join();
 
-            userInputThread.start();
-
-            player.play();
-
-            userInputThread.join();
-        } catch (JavaLayerException | InterruptedException | IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (JavaLayerException e) {
+            throw new RuntimeException(e);
         }
+    }
+
+    public InputStream getInputStreamFromServer(int portToConnect, String musicPath, String serverAdress) throws IOException {
+        // connect to the listening server to stream the musics
+        Socket listeningSocket = new Socket(serverAdress, portToConnect);
+        // create the sender to send information to the server
+        PrintWriter out = new PrintWriter(listeningSocket.getOutputStream(), true);
+        //send the path for the musics to stream
+        out.println(musicPath);
+
+        // Lisen the stream of the listening server
+        InputStream is = listeningSocket.getInputStream();
+
+        return is;
+    }
+
+}
+
+
+class userInputThread implements Runnable {
+    private boolean isMusicStopped = false;
+    private int stopped = 0;
+    private int total = 0;
+    private int[] pausedOnFrame;
+
+    private InputStream is;
+
+    private AdvancedPlayer player;
+
+    private Client client;
+    private  PrintWriter pOut;
+    private  BufferedReader buffIn;
+
+
+
+    public userInputThread(AdvancedPlayer player, InputStream is, Client client,PrintWriter pOut,BufferedReader buffIn,final int[] pausedOnFrame) throws IOException {
+        this.player = player;
+        this.is = is;
+        this.total = is.available();
+        this.client = client;
+        this.pOut = pOut;
+        this.buffIn = buffIn;
+        this.pausedOnFrame = pausedOnFrame;
+    }
+
+
+    @Override
+    public void run() {
+        try {
+            listenForUserInput();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JavaLayerException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    public void listenForUserInput() throws IOException, JavaLayerException {
+
+        Scanner sc = new Scanner(System.in);
+
+        char c;
+        do {
+            c = sc.next().charAt(0);
+            switch (c) {
+                case 's':
+                    stopMusic();
+                    break;
+                case 'p':
+                    if (isMusicStopped) {
+                        resumeMusic();
+                    } else {
+                        pauseMusic();
+                    }
+                    break;
+                default:
+                    System.out.println("You can only enter the letter 'S'. Try again.");
+                    break;
+            }
+
+
+        } while (c != 's' || c != 'S');
+
+
+    }
+
+
+    private void stopMusic() {
+        System.out.println("Music stopped");
+        player.close();
+        pOut.println("done");
+        client.menu(buffIn, pOut);
+    }
+
+    private void pauseMusic() throws IOException {
+        System.out.println("Music paused");
+        isMusicStopped = true;
+        player.stop();
+
+    }
+
+    private void resumeMusic() throws JavaLayerException, IOException {
+        System.out.println("Music resumed");
+        isMusicStopped = false;
+        player.play(pausedOnFrame[0],total);
+
+
     }
 
 
