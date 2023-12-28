@@ -39,7 +39,7 @@ public class DisconnectCommand implements Command {
         this.serverClientInteractions = serverClientInteractions;
         try { 
             removeSongs(buffIn, clientSocket.getInetAddress());
-            System.out.println("Client : " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " disconnects");
+            System.out.println("Client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " disconnects");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -60,10 +60,6 @@ public class DisconnectCommand implements Command {
                 storedSongs.remove(i);
                 i--; // Adjust the index to account for the removed element
             }
-        }
-            // Print the remaining songs
-        for (Music music : storedSongs) {
-            System.out.println("Remaining Song: " + music.getIpAddress());
         }
 
         } catch (IOException e) {

@@ -40,7 +40,8 @@ public class ListSongs implements Command{
     public void execute(ServerClientInteractions serverClientInteractions) {
         this.serverClientInteractions = serverClientInteractions;
 
-        System.out.println("Client lists songs");
+        System.out.println("Client " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " List the available songs on the server");
+
         try {
             pOut.println(server.getStoredSongs().size());
 
@@ -57,7 +58,6 @@ public class ListSongs implements Command{
                 pOut.println("Would you like to stream a song? (y/n) : ");
 
             }
-
 
             char ClientAnswer = buffIn.readLine().charAt(0);
             if (ClientAnswer == 'n') {

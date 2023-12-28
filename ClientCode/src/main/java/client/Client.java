@@ -113,10 +113,6 @@ public class Client {
         menu(buffIn, pOut);
     }
 
-    public void connectToClient() throws Exception {
-
-    }
-
     /*
      * Method that will display the menu to the user and ask him to enter a command
      * number between 1 and 3
@@ -134,9 +130,16 @@ public class Client {
 
             int number;
             do {
-                number = commandInput("Please enter a command number (1-3): ");
-                // changé condition car ne prend pas en compte les lettres
+                System.out.println();
+                System.out.print("Please enter a command number (1-3): ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Invalid input. Please enter a valid integer.");
+                    System.out.print("Please enter a command number (1-3): ");
+                    scanner.next();
+                }
+                number = scanner.nextInt();
             } while (number < 1 || number > 3);
+
             pOut.println(number);
             Command command;
             switch (number) {
@@ -149,14 +152,7 @@ public class Client {
                 case 3:
                     command = new CloseConnectionCommand(pOut, buffIn);
                     break;
-                // ------------------------------ playAudio (TEST)
-                // --------------------------------
-                /*
-                 * case 4 :
-                 * playAudio(clientSocket.getInputStream());
-                 */
-                // ------------------------------ playAudio (TEST)
-                // --------------------------------
+
                 default:
                     return;
             }
@@ -165,31 +161,7 @@ public class Client {
             e.printStackTrace();
         }
     }
-    // ------------------------------ playAudio (TEST)
-    // --------------------------------
-    /*
-     * public void playAudio(InputStream inputStream) {
-     * try (BufferedInputStream bufferedInputStream = new
-     * BufferedInputStream(inputStream)) {
-     *
-     * Player player = new Player(bufferedInputStream);
-     * player.play();
-     *
-     * } catch (JavaLayerException e) {
-     * e.printStackTrace();
-     * } catch (IOException e) {
-     * e.printStackTrace();
-     * }
-     * }
-     */
-    // ------------------------------ playAudio (TEST)
-    // --------------------------------
 
-    /*
-     * Method that will ask the user to enter a number and return it
-     *
-     * @param message : message that will be displayed to the user
-     */
     private int commandInput(String message) {
         int number = 0;
         boolean isInt;

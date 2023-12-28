@@ -55,9 +55,7 @@ public class ClientConnection {
         ServerSocket listeningSocket;
 
         try {
-            System.out.println("Server is starting on port " + listeningPort);
             listeningSocket = new ServerSocket(listeningPort);
-            System.out.println("Server is now listening for incoming connections...");
 
             while (true) {
                 Socket clientSocket = listeningSocket.accept();
@@ -69,12 +67,6 @@ public class ClientConnection {
         }
     }
 
-    /*
-     * Getter for the stored songs
-     * @return the stored songs
-     */
-    public ArrayList<Music> getStoredSongs() {
-        return storedSongs;
-    }
+
 
 }
