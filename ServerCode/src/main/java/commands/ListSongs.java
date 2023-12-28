@@ -77,6 +77,10 @@ public class ListSongs implements Command{
 
             }
 
+            if (buffIn.readLine().equals("done")) {
+                serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
+            }
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);

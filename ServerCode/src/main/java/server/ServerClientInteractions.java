@@ -24,7 +24,7 @@ public class ServerClientInteractions implements Runnable{
         server = Server.getServer();
     }
 
-    /* 
+    /*
      * Run method to handle the client connection and start the server-side logic
      */
     @Override
@@ -34,13 +34,13 @@ public class ServerClientInteractions implements Runnable{
 
 
     /*
-     * Menu method to handle the client commands 
+     * Menu method to handle the client commands
      * @param pOut the output stream to the client
      * @param bufferIn the input stream from the client
      * @param clientSocket the client socket
      */
     public void menu(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception{
-        pOut.println("Commands available:\n1\tList available songs\n2\tShare a song\n3\tDisconnect and close");
+        pOut.println("=====Commands available=====\n1\tList available songs\n2\tShare a song\n3\tDisconnect and close");
         int number = Integer.parseInt(bufferIn.readLine());
         //create a array for the Command pattern
         Command command = null;
