@@ -13,6 +13,8 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
+
+
 /**
  * Command to display available medias
  */
@@ -91,26 +93,21 @@ public class DisplayAvailableSongsCommand implements Command {
 
             var is = getInputStreamFromServer(portToConnect, musicPath, "127.0.0.1");
             BufferedInputStream bis = new BufferedInputStream(is);
-            final int[] pausedOnFrame = {0};
+
             // create the player to play the music
-            AdvancedPlayer player = null;
+            Player player = null;
             try {
-                player = new AdvancedPlayer(bis);
-                player.setPlayBackListener(new PlaybackListener() {
-                    @Override
-                    public void playbackFinished(PlaybackEvent event) {
-                        pausedOnFrame[0] = event.getFrame();
-                    }
-                });
+                player = new Player(bis);
+
 
             } catch (JavaLayerException e) {
                 throw new RuntimeException(e);
             }
 
-            var userInputRunnable = new userInputThread(player, is, client,pOut,buffIn,pausedOnFrame);
+            var userInputRunnable = new userInputThread(player, is, client, pOut, buffIn);
             var myThread = new Thread(userInputRunnable);
             myThread.start();
-            player.play(pausedOnFrame[0], Integer.MAX_VALUE);
+            player.play();
             myThread.join();
 
         } catch (IOException e) {
@@ -122,7 +119,7 @@ public class DisplayAvailableSongsCommand implements Command {
         }
     }
 
-    public InputStream getInputStreamFromServer(int portToConnect, String musicPath, String serverAdress) throws IOException {
+    public BufferedInputStream getInputStreamFromServer(int portToConnect, String musicPath, String serverAdress) throws IOException {
         // connect to the listening server to stream the musics
         Socket listeningSocket = new Socket(serverAdress, portToConnect);
         // create the sender to send information to the server
@@ -131,7 +128,7 @@ public class DisplayAvailableSongsCommand implements Command {
         out.println(musicPath);
 
         // Lisen the stream of the listening server
-        InputStream is = listeningSocket.getInputStream();
+        BufferedInputStream is = new BufferedInputStream(listeningSocket.getInputStream());
 
         return is;
     }
@@ -143,26 +140,27 @@ class userInputThread implements Runnable {
     private boolean isMusicStopped = false;
     private int stopped = 0;
     private int total = 0;
-    private int[] pausedOnFrame;
 
-    private InputStream is;
+    private BufferedInputStream is;
 
-    private AdvancedPlayer player;
+    private BufferedInputStream bufferedStream2;
+
+    private Player player;
 
     private Client client;
-    private  PrintWriter pOut;
-    private  BufferedReader buffIn;
+    private PrintWriter pOut;
+    private BufferedReader buffIn;
+
+    private ByteArrayInputStream byteArrayInputStream;
 
 
-
-    public userInputThread(AdvancedPlayer player, InputStream is, Client client,PrintWriter pOut,BufferedReader buffIn,final int[] pausedOnFrame) throws IOException {
+    public userInputThread(Player player, BufferedInputStream is, Client client, PrintWriter pOut, BufferedReader buffIn) throws IOException {
         this.player = player;
         this.is = is;
         this.total = is.available();
         this.client = client;
         this.pOut = pOut;
         this.buffIn = buffIn;
-        this.pausedOnFrame = pausedOnFrame;
     }
 
 
@@ -185,6 +183,8 @@ class userInputThread implements Runnable {
 
         char c;
         do {
+
+            System.out.println("Press 'S' to stop the music, 'P' to pause or resume the music");
             c = sc.next().charAt(0);
             switch (c) {
                 case 's':
@@ -203,33 +203,47 @@ class userInputThread implements Runnable {
             }
 
 
+
         } while (c != 's' || c != 'S');
 
 
     }
 
 
-    private void stopMusic() {
+    private void stopMusic(){
         System.out.println("Music stopped");
+
+
         player.close();
         pOut.println("done");
         client.menu(buffIn, pOut);
     }
 
+
     private void pauseMusic() throws IOException {
         System.out.println("Music paused");
         isMusicStopped = true;
-        player.stop();
+
+        // methode to stop the music
+        byte[] buffer = new byte[is.available()];
+        is.mark(buffer.length);
+        is.read(buffer);
+        byteArrayInputStream = new ByteArrayInputStream(buffer);
+
+        //transfer data to another stream
+        bufferedStream2 = new BufferedInputStream(byteArrayInputStream);
+        player.close();
 
     }
 
-    private void resumeMusic() throws JavaLayerException, IOException {
+    private void resumeMusic() throws JavaLayerException {
         System.out.println("Music resumed");
         isMusicStopped = false;
-        player.play(pausedOnFrame[0],total);
-
+        byteArrayInputStream.reset();
+        player = new Player(byteArrayInputStream);
+        is = new BufferedInputStream(bufferedStream2);
+        player.play();
 
     }
-
 
 }

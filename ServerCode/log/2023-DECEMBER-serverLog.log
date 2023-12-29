@@ -1,0 +1,92 @@
+déc. 29, 2023 1:35:38 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 1:36:36 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 1:42:34 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 1:42:58 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 29, 2023 1:56:46 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 1:57:10 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 1:58:33 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 2:01:20 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 2:01:24 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.154847 is connected with the server
+déc. 29, 2023 2:01:56 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 2:02:05 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.154857 is connected with the server
+déc. 29, 2023 2:02:37 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 29, 2023 2:02:56 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 2:03:02 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.154884 is connected with the server
+déc. 29, 2023 2:03:07 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 29, 2023 2:05:39 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 2:07:11 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 54915 is connected with the server
+déc. 29, 2023 2:07:15 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 29, 2023 2:33:33 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 2:33:54 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 55267 is connected with the server
+déc. 29, 2023 2:34:21 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 55267 shared ryanGosling.mp3
+déc. 29, 2023 2:56:39 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 2:56:39 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 29, 2023 2:56:39 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 29, 2023 2:56:54 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 55479 is connected with the server
+déc. 29, 2023 2:56:58 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55479 List the available songs on the server
+déc. 29, 2023 2:57:27 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 55479 shared ryanGosling.mp3
+déc. 29, 2023 2:57:40 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55479 List the available songs on the server
+déc. 29, 2023 2:58:12 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55479 List the available songs on the server
+déc. 29, 2023 2:58:49 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55479 List the available songs on the server
+déc. 29, 2023 3:05:04 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 29, 2023 3:05:04 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 29, 2023 3:05:04 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 29, 2023 3:05:12 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 55557 is connected with the server
+déc. 29, 2023 3:05:28 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 55557 shared ryanGosling.mp3
+déc. 29, 2023 3:05:36 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55557 List the available songs on the server
+déc. 29, 2023 3:07:51 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 55557
+déc. 29, 2023 3:07:56 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 55568 is connected with the server
+déc. 29, 2023 3:08:00 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55568 List the available songs on the server
+déc. 29, 2023 3:10:02 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 55568
+déc. 29, 2023 3:10:05 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 55600 is connected with the server
+déc. 29, 2023 3:10:08 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55600 List the available songs on the server
+déc. 29, 2023 3:11:48 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 55600
+déc. 29, 2023 3:11:49 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 55657 is connected with the server
+déc. 29, 2023 3:11:51 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55657 List the available songs on the server
+déc. 29, 2023 3:12:21 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 55657

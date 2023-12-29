@@ -8,6 +8,9 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.logging.Level;
+
+import static main.Main.logger;
 
 /*
  * Command to handle the client sharing media with the server
@@ -52,11 +55,14 @@ public class ClientSharesMediaCommand implements Command{
             String port = buffIn.readLine();
             int initialPort = Integer.parseInt(buffIn.readLine());
             Music music = new Music(path, songName, ipAddress, port,initialPort);
-            System.out.println("Client " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " shared "+ songName);
+            logger.log(Level.INFO, "Client " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " shared "+ songName);
+
+            System.out.println();
             server.getStoredSongs().add(music);
             serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            logger.log(Level.WARNING, "The music shared by  the client : " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " can not be added to the server");
+
         }
     }
     

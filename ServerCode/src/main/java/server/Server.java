@@ -5,8 +5,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 import javax.print.attribute.standard.Media;
+
+import static main.Main.createLogFile;
+import static main.Main.logger;
 
 
 /*
@@ -52,10 +56,14 @@ public class Server {
         // ServerSocket for listening to incoming connections
         ServerSocket serverSocket;
 
+        // check if the log file exists and create it if it doesn't
+        createLogFile();
+
+
         try {
-            System.out.println("Server is starting on port " + serverPort);
+            logger.log(Level.INFO, "Server is starting on port " + serverPort);
             serverSocket = new ServerSocket(serverPort);
-            System.out.println("Server is now listening for incoming connections...");
+            logger.log(Level.INFO,"Server is now listening for incoming connections...");
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
@@ -63,7 +71,8 @@ public class Server {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, e.getMessage());
+            System.exit(1);
         }
     }
 

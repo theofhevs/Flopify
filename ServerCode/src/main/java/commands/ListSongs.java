@@ -7,18 +7,21 @@ import javax.swing.table.TableRowSorter;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.logging.Level;
+
+import static main.Main.logger;
 
 /*
  * Command to list the songs on the server
  *
  */
-public class ListSongs implements Command{
+public class ListSongs implements Command {
     private ServerClientInteractions serverClientInteractions;
-    private  PrintWriter pOut;
-    private  BufferedReader buffIn;
-    private  Socket clientSocket;
+    private PrintWriter pOut;
+    private BufferedReader buffIn;
+    private Socket clientSocket;
     private Server server;
-    
+
 
     /*
      * Constructor for the command to list songs
@@ -39,8 +42,8 @@ public class ListSongs implements Command{
     @Override
     public void execute(ServerClientInteractions serverClientInteractions) {
         this.serverClientInteractions = serverClientInteractions;
+        logger.log(Level.INFO, "Client " + clientSocket.getInetAddress() + " : " + clientSocket.getPort() + " List the available songs on the server");
 
-        System.out.println("Client " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " List the available songs on the server");
 
         try {
             pOut.println(server.getStoredSongs().size());
@@ -51,10 +54,9 @@ public class ListSongs implements Command{
                 pOut.println(server.getStoredSongs().get(i).getPort());
             }
 
-            if (server.getStoredSongs().size() == 0){
+            if (server.getStoredSongs().size() == 0) {
                 serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
-            }
-            else {
+            } else {
                 pOut.println("Would you like to stream a song? (y/n) : ");
 
             }
@@ -62,13 +64,11 @@ public class ListSongs implements Command{
             char ClientAnswer = buffIn.readLine().charAt(0);
             if (ClientAnswer == 'n') {
                 serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
-            }
-
-            else if (ClientAnswer == 'y') {
+            } else if (ClientAnswer == 'y') {
                 pOut.println("Enter the number of the song you want to stream : ");
                 int songNumber = Integer.parseInt(buffIn.readLine());
                 for (int i = 0; i < server.getStoredSongs().size(); i++) {
-                    if ( i+1 == songNumber) {
+                    if (i + 1 == songNumber) {
                         pOut.println(server.getStoredSongs().get(i).getmusicPath());
                         pOut.println(server.getStoredSongs().get(i).getInitialPort());
                     }
@@ -81,9 +81,10 @@ public class ListSongs implements Command{
                 serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
             }
 
-
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            logger.log(Level.WARNING, "there's an error when sending available music to client : " + clientSocket.getInetAddress() + " : " + clientSocket.getPort());
+
+
         }
     }
 }

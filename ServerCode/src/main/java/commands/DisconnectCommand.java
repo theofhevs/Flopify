@@ -10,6 +10,9 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.logging.Level;
+
+import static main.Main.logger;
 
 /*
  * Command to disconnect the client from the server
@@ -19,7 +22,7 @@ public class DisconnectCommand implements Command {
 
     private Socket clientSocket;
     private Server server;
-    
+
     private PrintWriter pOut;
     private BufferedReader buffIn;
 
@@ -37,14 +40,15 @@ public class DisconnectCommand implements Command {
     @Override
     public void execute(ServerClientInteractions serverClientInteractions) {
         this.serverClientInteractions = serverClientInteractions;
-        try { 
+        try {
             removeSongs(buffIn, clientSocket.getInetAddress());
-            System.out.println("Client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort()+ " disconnects");
+            logger.log(Level.INFO, "Client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort() + " disconnects");
+            System.out.println();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            logger.log(Level.WARNING, "The Client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort() + " lost connection");
         }
     }
-    
+
 
     private void removeSongs(BufferedReader buffIn, InetAddress ipAddress) {
         try {
@@ -55,15 +59,17 @@ public class DisconnectCommand implements Command {
             ArrayList<Music> songsToRemove = new ArrayList<>();
 
             for (int i = 0; i < storedSongs.size(); i++) {
-            if (storedSongs.get(i).getIpAddress().equals(ipToCompare)) {
-                songsToRemove.add(storedSongs.get(i));
-                storedSongs.remove(i);
-                i--; // Adjust the index to account for the removed element
+                if (storedSongs.get(i).getIpAddress().equals(ipToCompare)) {
+                    songsToRemove.add(storedSongs.get(i));
+                    storedSongs.remove(i);
+                    i--; // Adjust the index to account for the removed element
+                }
             }
-        }
+            logger.log(Level.INFO, "the music shared by the client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort() + " has been removed");
+
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING, "impossible to remove the songs of the client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort());
         }
 
     }

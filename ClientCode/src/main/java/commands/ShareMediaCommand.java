@@ -53,7 +53,7 @@ public class ShareMediaCommand implements Command {
                 isValid = true;
                 System.out.println("Please enter the path of the music you want to share (must be a .mp3 file): ");
                 musicPath = sc.nextLine();
-
+                musicPath = musicPath.replaceAll("^\"|\"$", "");
                 // Check if the file exists at the musicPath
                 File file = new File(musicPath);
                 if (!file.exists()) {

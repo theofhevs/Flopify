@@ -5,6 +5,9 @@ import commands.DisconnectCommand;
 import commands.ListSongs;
 import java.io.*;
 import java.net.Socket;
+import java.util.logging.Level;
+
+import static main.Main.logger;
 
 /*
  * Class to handle the interactions between the server and the client and the server-side logic
@@ -66,7 +69,7 @@ public class ServerClientInteractions implements Runnable{
      */
     private void handleClientConnection(Socket clientSocket) {
         try {
-            System.out.println("Client connected: " + clientSocket.getInetAddress() + " : " + clientSocket.getPort());
+            logger.log(Level.INFO, "Client  " + clientSocket.getInetAddress().toString() + " : " + clientSocket.getPort() + " is connected with the server");
 
             // buffIn is used to read data from the client
             BufferedReader buffIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -77,7 +80,8 @@ public class ServerClientInteractions implements Runnable{
             // Perform server-side logic as needed
             menu(pOut, buffIn, clientSocket);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING, "Connection with " + clientSocket.getInetAddress().toString() + " lost");
+
         }
     }
 }
