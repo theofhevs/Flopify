@@ -24,6 +24,8 @@ public class Server {
     private static Server serverInstance  = null;
 
     private ArrayList<Music> storedSongs = new ArrayList<>(50);
+    private ArrayList<ClientConnected> storedCLients = new ArrayList<>(50);
+
 
     /*
      * Private constructor for the server class to prevent multiple instances
@@ -67,6 +69,8 @@ public class Server {
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                // Creste a new ClientConnected object to store the client's information
+
                 new Thread(new ServerClientInteractions(clientSocket)).start();
             }
 
@@ -83,5 +87,9 @@ public class Server {
     public ArrayList<Music> getStoredSongs() {
         return storedSongs;
     }
+    public ArrayList<ClientConnected> getStoredClients() {
+        return storedCLients;
+    }
+
 
 }

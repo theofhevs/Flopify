@@ -1,10 +1,10 @@
 package server;
-import commands.ClientSharesMediaCommand;
-import commands.Command;
-import commands.DisconnectCommand;
-import commands.ListSongs;
+
+import commands.*;
+
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 import static main.Main.logger;
@@ -13,7 +13,7 @@ import static main.Main.logger;
  * Class to handle the interactions between the server and the client and the server-side logic
  *
  */
-public class ServerClientInteractions implements Runnable{
+public class ServerClientInteractions implements Runnable {
     private final Socket clientSocket;
 
     private Server server;
@@ -42,20 +42,23 @@ public class ServerClientInteractions implements Runnable{
      * @param bufferIn the input stream from the client
      * @param clientSocket the client socket
      */
-    public void menu(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception{
-        pOut.println("=====Commands available=====\n1\tList available songs\n2\tShare a song\n3\tDisconnect and close");
+    public void menu(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket) throws Exception {
+        pOut.println("=====Commands available=====\n1\tList available songs\n2\tShare a song\n3\tDisconnect and close\n4\tWho is connected?");
         int number = Integer.parseInt(bufferIn.readLine());
         //create a array for the Command pattern
         Command command = null;
         switch (number) {
             case 1:
-                command = new ListSongs(pOut, bufferIn, clientSocket,server);
+                command = new ListSongs(pOut, bufferIn, clientSocket, server);
                 break;
             case 2:
                 command = new ClientSharesMediaCommand(pOut, bufferIn, clientSocket, server);
                 break;
             case 3:
                 command = new DisconnectCommand(pOut, bufferIn, clientSocket, server);
+                break;
+            case 4:
+                command = new ListClients(pOut, bufferIn, clientSocket, server);
                 break;
 
         }
@@ -71,11 +74,17 @@ public class ServerClientInteractions implements Runnable{
         try {
             logger.log(Level.INFO, "Client  " + clientSocket.getInetAddress().toString() + " : " + clientSocket.getPort() + " is connected with the server");
 
+
             // buffIn is used to read data from the client
             BufferedReader buffIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
             // pOut is used to send data to the client
             PrintWriter pOut = new PrintWriter(clientSocket.getOutputStream(), true);
+
+
+            int initialPort = Integer.parseInt(buffIn.readLine());
+            ClientConnected clientConnected = new ClientConnected(clientSocket.getInetAddress().toString(), clientSocket.getPort(), initialPort);
+            server.getStoredClients().add(clientConnected);
 
             // Perform server-side logic as needed
             menu(pOut, buffIn, clientSocket);
@@ -84,6 +93,8 @@ public class ServerClientInteractions implements Runnable{
 
         }
     }
+
+
 }
 
 

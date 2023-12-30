@@ -90,3 +90,635 @@ déc. 29, 2023 3:11:51 PM commands.ListSongs execute
 INFO: Client /127.0.0.1 : 55657 List the available songs on the server
 déc. 29, 2023 3:12:21 PM commands.ListSongs execute
 WARNING: there's an error when sending available music to client : /127.0.0.1 : 55657
+déc. 30, 2023 1:52:20 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 1:52:20 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 1:52:20 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 1:52:27 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57338 is connected with the server
+déc. 30, 2023 1:52:33 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 57338 List the available songs on the server
+déc. 30, 2023 1:52:42 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 57338
+déc. 30, 2023 2:16:42 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:16:42 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:16:42 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:16:49 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57514 is connected with the server
+déc. 30, 2023 2:16:55 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 57514 List the available songs on the server
+déc. 30, 2023 2:18:22 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:18:22 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:18:22 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:18:27 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57524 is connected with the server
+déc. 30, 2023 2:19:34 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:19:34 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:19:34 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:19:39 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57548 is connected with the server
+déc. 30, 2023 2:20:13 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 2:20:16 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57559 is connected with the server
+déc. 30, 2023 2:20:20 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57563 is connected with the server
+déc. 30, 2023 2:21:32 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 2:21:34 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 2:21:42 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:21:42 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:21:42 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:21:46 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57573 is connected with the server
+déc. 30, 2023 2:21:50 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57577 is connected with the server
+déc. 30, 2023 2:27:35 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:27:35 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:27:35 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:27:44 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57615 is connected with the server
+déc. 30, 2023 2:27:58 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57620 is connected with the server
+déc. 30, 2023 2:28:42 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:28:42 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:28:42 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:28:46 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57630 is connected with the server
+déc. 30, 2023 2:29:01 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:29:01 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:29:01 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:29:32 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57654 is connected with the server
+déc. 30, 2023 2:29:39 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:29:39 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:29:39 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:30:50 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57665 is connected with the server
+déc. 30, 2023 2:32:40 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:32:40 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:32:40 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:32:46 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57682 is connected with the server
+déc. 30, 2023 2:33:00 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57688 is connected with the server
+déc. 30, 2023 2:42:06 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:42:06 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:42:06 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:42:12 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57752 is connected with the server
+déc. 30, 2023 2:42:21 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57757 is connected with the server
+déc. 30, 2023 2:42:38 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 57752 has been removed
+déc. 30, 2023 2:42:38 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57752
+déc. 30, 2023 2:42:38 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57752 disconnects
+déc. 30, 2023 2:42:59 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57770 is connected with the server
+déc. 30, 2023 2:43:19 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 57770 shared ryanGosling.mp3
+déc. 30, 2023 2:43:31 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 57757 List the available songs on the server
+déc. 30, 2023 2:43:39 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 57770 has been removed
+déc. 30, 2023 2:43:39 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57770
+déc. 30, 2023 2:43:39 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57770 disconnects
+déc. 30, 2023 2:43:42 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 57757 List the available songs on the server
+déc. 30, 2023 2:47:11 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:47:11 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:47:11 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:47:14 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57854 is connected with the server
+déc. 30, 2023 2:47:20 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57858 is connected with the server
+déc. 30, 2023 2:47:25 PM commands.DisconnectCommand removeClients
+INFO: the music shared by the client  /127.0.0.1 : 57858 has been removed
+déc. 30, 2023 2:47:25 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57858 disconnects
+déc. 30, 2023 2:48:14 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:48:14 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:48:14 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:48:20 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57868 is connected with the server
+déc. 30, 2023 2:48:29 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 57868 has been removed
+déc. 30, 2023 2:48:29 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57868
+déc. 30, 2023 2:48:29 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57868 disconnects
+déc. 30, 2023 2:48:43 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:48:43 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:48:43 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:48:47 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57878 is connected with the server
+déc. 30, 2023 2:48:49 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 57878 has been removed
+déc. 30, 2023 2:48:50 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57878
+déc. 30, 2023 2:48:50 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57878 disconnects
+déc. 30, 2023 2:49:11 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:49:11 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:49:11 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:49:16 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57908 is connected with the server
+déc. 30, 2023 2:49:44 PM commands.DisconnectCommand removeSongs
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57908
+déc. 30, 2023 2:51:04 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57908
+déc. 30, 2023 2:51:04 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57908 disconnects
+déc. 30, 2023 2:51:21 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:51:22 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:51:22 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:51:29 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57927 is connected with the server
+déc. 30, 2023 2:51:33 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 57927 has been removed
+déc. 30, 2023 2:51:33 PM commands.DisconnectCommand removeClients
+INFO: the music shared by the client  /127.0.0.1 : 57927 has been removed
+déc. 30, 2023 2:51:33 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57927 disconnects
+déc. 30, 2023 2:51:43 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57932 is connected with the server
+déc. 30, 2023 2:52:00 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:52:00 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:52:00 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:52:05 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57940 is connected with the server
+déc. 30, 2023 2:52:12 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57945 is connected with the server
+déc. 30, 2023 2:52:19 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 57945 has been removed
+déc. 30, 2023 2:52:19 PM commands.DisconnectCommand removeClients
+INFO: the music shared by the client  /127.0.0.1 : 57945 has been removed
+déc. 30, 2023 2:52:19 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57945 disconnects
+déc. 30, 2023 2:53:00 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:53:00 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:53:00 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:53:04 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57954 is connected with the server
+déc. 30, 2023 2:53:48 PM commands.DisconnectCommand removeSongs
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57954
+déc. 30, 2023 2:54:02 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 57954
+déc. 30, 2023 2:54:28 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57954 disconnects
+déc. 30, 2023 2:54:40 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:54:40 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:54:40 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:54:46 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 57989 is connected with the server
+déc. 30, 2023 2:54:49 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 57989 has been removed
+déc. 30, 2023 2:54:49 PM commands.DisconnectCommand removeClients
+INFO: the music shared by the client  /127.0.0.1 : 57989 has been removed
+déc. 30, 2023 2:54:49 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 57989 disconnects
+déc. 30, 2023 2:56:05 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:56:05 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:56:05 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:56:10 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58006 is connected with the server
+déc. 30, 2023 2:56:25 PM commands.DisconnectCommand removeSongs
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 58006
+déc. 30, 2023 2:56:44 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 58006
+déc. 30, 2023 2:56:44 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58006 disconnects
+déc. 30, 2023 2:56:47 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 2:56:47 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 2:56:47 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 2:56:51 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58016 is connected with the server
+déc. 30, 2023 2:57:32 PM commands.DisconnectCommand removeSongs
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 58016
+déc. 30, 2023 2:57:32 PM commands.DisconnectCommand removeClients
+WARNING: impossible to remove the songs of the client  /127.0.0.1 : 58016
+déc. 30, 2023 2:57:32 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58016 disconnects
+déc. 30, 2023 3:00:17 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:00:17 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:00:17 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:00:23 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58051 is connected with the server
+déc. 30, 2023 3:00:27 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58055 is connected with the server
+déc. 30, 2023 3:00:38 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58055 has been removed
+déc. 30, 2023 3:00:38 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58055 has been removed
+déc. 30, 2023 3:00:38 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58055 disconnects
+déc. 30, 2023 3:00:56 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58060 is connected with the server
+déc. 30, 2023 3:01:12 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58060 shared ryanGosling.mp3
+déc. 30, 2023 3:01:18 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58051 List the available songs on the server
+déc. 30, 2023 3:01:24 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58060 has been removed
+déc. 30, 2023 3:01:24 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58060 has been removed
+déc. 30, 2023 3:01:24 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58060 disconnects
+déc. 30, 2023 3:01:32 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58051 List the available songs on the server
+déc. 30, 2023 3:09:23 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:09:23 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:09:23 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:09:28 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58116 is connected with the server
+déc. 30, 2023 3:09:37 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58136 is connected with the server
+déc. 30, 2023 3:09:43 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58116 has been removed
+déc. 30, 2023 3:09:43 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58116 has been removed
+déc. 30, 2023 3:09:43 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58116 disconnects
+déc. 30, 2023 3:11:02 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:11:02 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:11:02 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:11:07 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58144 is connected with the server
+déc. 30, 2023 3:11:16 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58149 is connected with the server
+déc. 30, 2023 3:11:38 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58149 has been removed
+déc. 30, 2023 3:11:38 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58149 has been removed
+déc. 30, 2023 3:11:38 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58149 disconnects
+déc. 30, 2023 3:12:21 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:12:21 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:12:21 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:12:26 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58158 is connected with the server
+déc. 30, 2023 3:12:53 PM commands.DisconnectCommand execute
+WARNING: The Client  /127.0.0.1 : 58158 lost connection
+déc. 30, 2023 3:13:32 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:13:32 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:13:32 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:13:37 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58168 is connected with the server
+déc. 30, 2023 3:13:40 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58172 is connected with the server
+déc. 30, 2023 3:13:54 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58172 shared ryanGosling.mp3
+déc. 30, 2023 3:14:04 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58172 has been removed
+déc. 30, 2023 3:14:04 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58172 has been removed
+déc. 30, 2023 3:14:04 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58172 disconnects
+déc. 30, 2023 3:14:14 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:14:15 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:14:15 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:14:19 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58183 is connected with the server
+déc. 30, 2023 3:14:28 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58183 shared ryanGosling.mp3
+déc. 30, 2023 3:14:42 PM commands.DisconnectCommand execute
+WARNING: The Client  /127.0.0.1 : 58183 lost connection
+déc. 30, 2023 3:15:08 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58213 is connected with the server
+déc. 30, 2023 3:15:14 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:15:14 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:15:14 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:15:20 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58221 is connected with the server
+déc. 30, 2023 3:15:22 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 3:15:24 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58226 is connected with the server
+déc. 30, 2023 3:15:28 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58226 shared ryanGosling.mp3
+déc. 30, 2023 3:15:40 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58230 is connected with the server
+déc. 30, 2023 3:15:42 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58230 List the available songs on the server
+déc. 30, 2023 3:16:24 PM commands.DisconnectCommand execute
+WARNING: The Client  /127.0.0.1 : 58230 lost connection
+déc. 30, 2023 3:16:24 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 58230
+déc. 30, 2023 3:16:33 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58226 List the available songs on the server
+déc. 30, 2023 3:16:37 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 58226
+déc. 30, 2023 3:16:46 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:16:46 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:16:46 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:16:49 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58239 is connected with the server
+déc. 30, 2023 3:16:53 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58239 shared ryanGosling.mp3
+déc. 30, 2023 3:16:58 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58245 is connected with the server
+déc. 30, 2023 3:17:00 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58245 List the available songs on the server
+déc. 30, 2023 3:17:06 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58239 has been removed
+déc. 30, 2023 3:17:06 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58239 has been removed
+déc. 30, 2023 3:17:06 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58239 disconnects
+déc. 30, 2023 3:17:10 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58245 List the available songs on the server
+déc. 30, 2023 3:18:03 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:18:03 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:18:03 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:18:07 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58266 is connected with the server
+déc. 30, 2023 3:18:11 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58266 shared ryanGosling.mp3
+déc. 30, 2023 3:18:16 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58270 is connected with the server
+déc. 30, 2023 3:18:18 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58270 List the available songs on the server
+déc. 30, 2023 3:23:55 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:23:55 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:23:55 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:24:00 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58330 is connected with the server
+déc. 30, 2023 3:24:12 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58335 is connected with the server
+déc. 30, 2023 3:24:18 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58335 has been removed
+déc. 30, 2023 3:24:18 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58335 has been removed
+déc. 30, 2023 3:24:18 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58335 disconnects
+déc. 30, 2023 3:30:03 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:30:03 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:30:03 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:30:07 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58388 is connected with the server
+déc. 30, 2023 3:30:09 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58388 has been removed
+déc. 30, 2023 3:30:09 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58388 has been removed
+déc. 30, 2023 3:30:09 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58388 disconnects
+déc. 30, 2023 3:31:29 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:31:29 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:31:29 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:31:32 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58402 is connected with the server
+déc. 30, 2023 3:31:34 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58402 has been removed
+déc. 30, 2023 3:31:34 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58402 has been removed
+déc. 30, 2023 3:31:34 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58402 disconnects
+déc. 30, 2023 3:32:20 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:32:20 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:32:20 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:32:23 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58412 is connected with the server
+déc. 30, 2023 3:32:26 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 3:33:15 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58417 is connected with the server
+déc. 30, 2023 3:33:19 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58422 is connected with the server
+déc. 30, 2023 3:33:21 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 3:35:50 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58446 is connected with the server
+déc. 30, 2023 3:36:03 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58446 shared ryanGosling.mp3
+déc. 30, 2023 3:36:09 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58446 has been removed
+déc. 30, 2023 3:36:09 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58446 has been removed
+déc. 30, 2023 3:36:09 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58446 disconnects
+déc. 30, 2023 3:36:39 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58417 shared ryanGosling.mp3
+déc. 30, 2023 3:36:40 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58417 has been removed
+déc. 30, 2023 3:36:40 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58417 has been removed
+déc. 30, 2023 3:36:40 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58417 disconnects
+déc. 30, 2023 3:37:25 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58454 is connected with the server
+déc. 30, 2023 3:37:29 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58454 shared ryanGosling.mp3
+déc. 30, 2023 3:37:35 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58458 is connected with the server
+déc. 30, 2023 3:37:40 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58458 has been removed
+déc. 30, 2023 3:37:40 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58458 has been removed
+déc. 30, 2023 3:37:40 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58458 disconnects
+déc. 30, 2023 3:37:44 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58454 List the available songs on the server
+déc. 30, 2023 3:43:33 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:43:33 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:43:33 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:43:41 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58496 is connected with the server
+déc. 30, 2023 3:43:52 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 58496 shared ryanGosling.mp3
+déc. 30, 2023 3:44:00 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58501 is connected with the server
+déc. 30, 2023 3:44:01 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58501 List the available songs on the server
+déc. 30, 2023 3:44:09 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58501 has been removed
+déc. 30, 2023 3:44:09 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58501 has been removed
+déc. 30, 2023 3:44:09 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58501 disconnects
+déc. 30, 2023 3:44:09 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 58501
+déc. 30, 2023 3:44:13 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58496 List the available songs on the server
+déc. 30, 2023 3:49:03 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:49:03 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:49:03 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:49:13 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58697 is connected with the server
+déc. 30, 2023 3:49:23 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58703 is connected with the server
+déc. 30, 2023 3:49:28 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58703 has been removed
+déc. 30, 2023 3:49:28 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58703 has been removed
+déc. 30, 2023 3:49:28 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58703 disconnects
+déc. 30, 2023 3:52:34 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:52:34 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:52:34 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:52:38 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58734 is connected with the server
+déc. 30, 2023 3:52:54 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58738 is connected with the server
+déc. 30, 2023 3:53:03 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58738 has been removed
+déc. 30, 2023 3:53:03 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58738 has been removed
+déc. 30, 2023 3:53:03 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58738 disconnects
+déc. 30, 2023 3:53:08 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 58734 List the available songs on the server
+déc. 30, 2023 3:55:17 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:55:17 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:55:17 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:55:22 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58784 is connected with the server
+déc. 30, 2023 3:55:30 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58794 is connected with the server
+déc. 30, 2023 3:55:39 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58784 has been removed
+déc. 30, 2023 3:55:39 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58784 has been removed
+déc. 30, 2023 3:55:39 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58784 disconnects
+déc. 30, 2023 3:55:56 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 3:56:01 PM main.Main createLogFile
+INFO: Log registered in ./log/2023-DECEMBER-serverLog.log
+déc. 30, 2023 3:56:01 PM server.Server startServer
+INFO: Server is starting on port 45000
+déc. 30, 2023 3:56:01 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+déc. 30, 2023 3:56:06 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58803 is connected with the server
+déc. 30, 2023 3:56:16 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58807 is connected with the server
+déc. 30, 2023 3:56:33 PM commands.DisconnectCommand removeSongs
+INFO: the music shared by the client  /127.0.0.1 : 58803 has been removed
+déc. 30, 2023 3:56:33 PM commands.DisconnectCommand removeClients
+INFO: the client  /127.0.0.1 : 58803 has been removed
+déc. 30, 2023 3:56:33 PM commands.DisconnectCommand execute
+INFO: Client  /127.0.0.1 : 58803 disconnects
+déc. 30, 2023 3:57:40 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost
+déc. 30, 2023 3:57:43 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 58814 is connected with the server
+déc. 30, 2023 3:57:47 PM server.ServerClientInteractions handleClientConnection
+WARNING: Connection with /127.0.0.1 lost

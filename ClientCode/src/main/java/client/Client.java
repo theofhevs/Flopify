@@ -7,10 +7,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 import PeerToPeer.ClientConnection;
-import commands.CloseConnectionCommand;
-import commands.Command;
-import commands.DisplayAvailableSongsCommand;
-import commands.ShareMediaCommand;
+import commands.*;
 
 
 /**
@@ -56,8 +53,6 @@ public class Client {
         this.serverName = serverName;
         this.serverPort = 45000;
         ipAddress = localAddress;
-
-
         initialPort = getAvailablePort();
 
         Thread server = new Thread(new Runnable() {
@@ -104,16 +99,19 @@ public class Client {
         System.out.println("connexion to the server " + serverName + " on port " + serverPort);
         clientSocket = new Socket(serverName, serverPort);
         System.out.println("connexion Succeded");
+
         // buffIn is used to read the data that are received by the server
         BufferedReader buffIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         // pOut is used to send data to the server
         PrintWriter pOut = new PrintWriter(clientSocket.getOutputStream(), true);
+        pOut.println(getInitialPort());
+
         menu(buffIn, pOut);
     }
 
     /*
      * Method that will display the menu to the user and ask him to enter a command
-     * number between 1 and 3
+     * number between 1 and 4
      *
      * @param buffIn : BufferedReader used to read the data that are received by the
      * server
@@ -123,20 +121,20 @@ public class Client {
     public void menu(BufferedReader buffIn, PrintWriter pOut) {
         try {
             System.out.println();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
                 System.out.println(buffIn.readLine());
 
             int number;
             do {
                 System.out.println();
-                System.out.print("Please enter a command number (1-3): ");
+                System.out.print("Please enter a command number (1-4): ");
                 while (!scanner.hasNextInt()) {
                     System.out.println("Invalid input. Please enter a valid integer.");
-                    System.out.print("Please enter a command number (1-3): ");
+                    System.out.print("Please enter a command number (1-4): ");
                     scanner.next();
                 }
                 number = scanner.nextInt();
-            } while (number < 1 || number > 3);
+            } while (number < 1 || number > 4);
 
             pOut.println(number);
             Command command;
@@ -149,6 +147,10 @@ public class Client {
                     break;
                 case 3:
                     command = new CloseConnectionCommand(pOut, buffIn);
+                    break;
+
+                    case 4:
+                    command = new DisplayClients(pOut, buffIn);
                     break;
 
                 default:

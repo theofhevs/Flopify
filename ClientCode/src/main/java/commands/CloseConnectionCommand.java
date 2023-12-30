@@ -27,7 +27,8 @@ public class CloseConnectionCommand implements Command {
     @Override
     public void execute(Client client) {
         this.client = client;
-        pOut.println(client.getIpAddress());
+
+        pOut.println(client.getInitialPort());
 
         System.out.println("Closing connection with the server");
         System.exit(0); //used to terminate the client "server" thread as well
