@@ -184,18 +184,14 @@ class userInputThread implements Runnable {
         char c;
         do {
 
-            System.out.println("Press 'S' to stop the music, 'P' to pause or resume the music");
+            System.out.println("Press 'S' to stop the music");
             c = sc.next().charAt(0);
             switch (c) {
                 case 's':
                     stopMusic();
                     break;
-                case 'p':
-                    if (isMusicStopped) {
-                        resumeMusic();
-                    } else {
-                        pauseMusic();
-                    }
+                case 'S':
+                    stopMusic();
                     break;
                 default:
                     System.out.println("You can only enter the letter 'S'. Try again.");
@@ -212,38 +208,11 @@ class userInputThread implements Runnable {
 
     private void stopMusic(){
         System.out.println("Music stopped");
-
-
         player.close();
         pOut.println("done");
         client.menu(buffIn, pOut);
     }
 
 
-    private void pauseMusic() throws IOException {
-        System.out.println("Music paused");
-        isMusicStopped = true;
-
-        // methode to stop the music
-        byte[] buffer = new byte[is.available()];
-        is.mark(buffer.length);
-        is.read(buffer);
-        byteArrayInputStream = new ByteArrayInputStream(buffer);
-
-        //transfer data to another stream
-        bufferedStream2 = new BufferedInputStream(byteArrayInputStream);
-        player.close();
-
-    }
-
-    private void resumeMusic() throws JavaLayerException {
-        System.out.println("Music resumed");
-        isMusicStopped = false;
-        byteArrayInputStream.reset();
-        player = new Player(byteArrayInputStream);
-        is = new BufferedInputStream(bufferedStream2);
-        player.play();
-
-    }
 
 }

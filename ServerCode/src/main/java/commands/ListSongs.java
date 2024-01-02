@@ -70,7 +70,7 @@ public class ListSongs implements Command {
                 for (int i = 0; i < server.getStoredSongs().size(); i++) {
                     if (i + 1 == songNumber) {
                         pOut.println(server.getStoredSongs().get(i).getmusicPath());
-                        pOut.println(server.getStoredSongs().get(i).getPort());
+                        pOut.println(server.getStoredSongs().get(i).getInitialPort());
                     }
 
                 }
