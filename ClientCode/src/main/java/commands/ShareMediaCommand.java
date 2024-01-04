@@ -25,6 +25,7 @@ public class ShareMediaCommand implements Command {
      * Constructor of the command that will set the input and output streams of the client
      * @param pOut : output stream of the client
      * @param buffIn : input stream of the client
+     * @param clientSocket : socket of the client
      */
     public ShareMediaCommand(PrintWriter pOut, BufferedReader buffIn, Socket clientSocket) {
         this.clientSocket = clientSocket;

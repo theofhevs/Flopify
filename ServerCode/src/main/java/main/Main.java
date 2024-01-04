@@ -11,8 +11,9 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 
-
-
+/*
+ * Main class to start the server on port 45000 and listen for incoming connections from clients
+ */
 public class Main {
 
     /**
@@ -28,10 +29,6 @@ public class Main {
      */
     public static String logPath = "./log/" + LocalDateTime.now().getYear() + "-" + LocalDateTime.now().getMonth() + "-serverLog.log";
 
-
-    /*
-     * Main class to start the server on port 45000 and listen for incoming connections from clients
-     */
     public static void main(String[] args) {
         Server server = new Server(45000);
         server.startServer();

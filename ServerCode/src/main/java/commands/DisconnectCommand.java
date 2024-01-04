@@ -27,6 +27,13 @@ public class DisconnectCommand implements Command {
     private PrintWriter pOut;
     private BufferedReader buffIn;
 
+    /*
+     * Constructor for the command to disconnect the client
+     * @param pOut the output stream to the client
+     * @param bufferIn the input stream from the client
+     * @param clientSocket the socket of the client
+     * @param server the server to execute the command on
+     */
     public DisconnectCommand(PrintWriter pOut, BufferedReader buffIn, Socket clientSocket, Server server) {
         this.clientSocket = clientSocket;
         this.server = server;
@@ -54,12 +61,16 @@ public class DisconnectCommand implements Command {
     }
 
 
+    /*
+     * Method to remove the songs of the client from the server
+     * @param portToCompare the port of the client to compare with
+     */
     private void removeSongs(int portToCompare) {
-
-        // Delete all songs of the client based on the ip address
+        // Temporary array to store the songs to be removed
         ArrayList<Music> storedSongs = server.getStoredSongs();
         ArrayList<Music> songsToRemove = new ArrayList<>();
 
+        // Delete all songs of the client based on the ip address
         for (int i = 0; i < storedSongs.size(); i++) {
             if (storedSongs.get(i).getInitialPort() == (portToCompare)) {
                 songsToRemove.add(storedSongs.get(i));
@@ -71,6 +82,7 @@ public class DisconnectCommand implements Command {
 
     }
 
+    // Method to remove the client from the server
     private void removeClients(int portToCompare) {
         try {
 

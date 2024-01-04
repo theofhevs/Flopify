@@ -86,6 +86,7 @@ public class DisplayAvailableSongsCommand implements Command {
             pOut.println(songNumber);
 
 
+            // Get the path of the music and the port to connect from the server
             String musicPath = buffIn.readLine();
             int portToConnect = Integer.parseInt(buffIn.readLine());
             System.out.println("Music path : " + musicPath);
@@ -104,6 +105,7 @@ public class DisplayAvailableSongsCommand implements Command {
                 throw new RuntimeException(e);
             }
 
+            // Create the runnable to listen the user input
             var userInputRunnable = new userInputThread(player, is, client, pOut, buffIn);
             var myThread = new Thread(userInputRunnable);
             myThread.start();
@@ -119,6 +121,13 @@ public class DisplayAvailableSongsCommand implements Command {
         }
     }
 
+    /*
+     * Method that will connect to the listening server to stream the music
+     * @param portToConnect : port to connect to the listening server
+     * @param musicPath : path of the music to stream
+     * @param serverAdress : adress of the server
+     * @return the input stream of the listening server
+     */
     public BufferedInputStream getInputStreamFromServer(int portToConnect, String musicPath, String serverAdress) throws IOException {
         // connect to the listening server to stream the musics
         Socket listeningSocket = new Socket(serverAdress, portToConnect);
@@ -135,7 +144,10 @@ public class DisplayAvailableSongsCommand implements Command {
 
 }
 
-
+/*
+ * Class that will listen the user input and stop the music if the user enter 'S'
+ * 
+ */
 class userInputThread implements Runnable {
     private boolean isMusicStopped = false;
     private int stopped = 0;
@@ -154,6 +166,14 @@ class userInputThread implements Runnable {
     private ByteArrayInputStream byteArrayInputStream;
 
 
+    /*
+     * Constructor of the userInputThread class
+     * @param player : player that will play the music
+     * @param is : input stream of the music
+     * @param client : client that will execute the command
+     * @param pOut : output stream of the client
+     * @param buffIn : input stream of the client
+     */
     public userInputThread(Player player, BufferedInputStream is, Client client, PrintWriter pOut, BufferedReader buffIn) throws IOException {
         this.player = player;
         this.is = is;
@@ -177,6 +197,9 @@ class userInputThread implements Runnable {
     }
 
 
+    /*
+     * Method that will listen the user input and stop the music if the user enter 'S'
+     */
     public void listenForUserInput() throws IOException, JavaLayerException {
 
         Scanner sc = new Scanner(System.in);
@@ -197,22 +220,18 @@ class userInputThread implements Runnable {
                     System.out.println("You can only enter the letter 'S'. Try again.");
                     break;
             }
-
-
-
         } while (c != 's' || c != 'S');
 
 
     }
 
-
+    /*
+     * Method that will stop the music and call the menu
+     */
     private void stopMusic(){
         System.out.println("Music stopped");
         player.close();
         pOut.println("done");
         client.menu(buffIn, pOut);
     }
-
-
-
 }

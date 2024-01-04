@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/*
+ * Command to list all the clients connected to the server
+ */
 public class ListClients implements  Command{
     private ServerClientInteractions serverClientInteractions;
     private PrintWriter pOut;
@@ -15,6 +18,13 @@ public class ListClients implements  Command{
     private Server server;
 
 
+    /*
+     * Constructor for the command to list all the clients
+     * @param pOut the output stream to the client
+     * @param bufferIn the input stream from the client
+     * @param clientSocket the socket of the client
+     * @param server the server to execute the command on
+     */
     public ListClients(PrintWriter pOut, BufferedReader buffIn, Socket clientSocket, Server server) {
         this.pOut = pOut;
         this.buffIn = buffIn;

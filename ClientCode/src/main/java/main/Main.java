@@ -10,8 +10,6 @@ import java.net.InetAddress;
 public class Main {
     public static void main(String[] args) {
         try {
-
-            // Exemple d'utilisation du Client avec le port par défaut (45000)
             Client client2 = new Client("localhost", InetAddress.getLocalHost());
             client2.connectToServer();
 

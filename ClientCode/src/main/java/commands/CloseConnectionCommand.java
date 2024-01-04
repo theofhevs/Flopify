@@ -15,6 +15,11 @@ public class CloseConnectionCommand implements Command {
     private Client client;
 
 
+    /*
+     * Constructor of the CloseConnectionCommand class
+     * @param pOut : output stream of the client
+     * @param buffIn : input stream of the client
+     */
     public CloseConnectionCommand(PrintWriter pOut, BufferedReader buffIn) {
         this.pOut = pOut;
         this.buffIn = buffIn;

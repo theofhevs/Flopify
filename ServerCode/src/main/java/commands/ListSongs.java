@@ -27,6 +27,8 @@ public class ListSongs implements Command {
      * Constructor for the command to list songs
      * @param pOut the output stream to the client
      * @param bufferIn the input stream from the client
+     * @param clientSocket the socket of the client
+     * @param server the server to execute the command on
      */
     public ListSongs(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket, Server server) {
         this.pOut = pOut;
@@ -54,6 +56,7 @@ public class ListSongs implements Command {
                 pOut.println(server.getStoredSongs().get(i).getPort());
             }
 
+            // If there are no songs on the server, call the menu
             if (server.getStoredSongs().size() == 0) {
                 serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
             } else {
@@ -61,6 +64,7 @@ public class ListSongs implements Command {
 
             }
 
+            // Get the client's answer
             char ClientAnswer = buffIn.readLine().charAt(0);
             if (ClientAnswer == 'n') {
                 serverClientInteractions.menu(pOut, buffIn, clientSocket); // Call the menu after executing the command
@@ -83,7 +87,6 @@ public class ListSongs implements Command {
 
         } catch (Exception e) {
             logger.log(Level.WARNING, "there's an error when sending available music to client : " + clientSocket.getInetAddress() + " : " + clientSocket.getPort());
-
 
         }
     }

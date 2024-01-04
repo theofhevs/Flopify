@@ -30,12 +30,17 @@ public class Client {
 
     private int initialPort;
 
+    /*
+     * Getter of the initialPort attribute
+     * @return the initial port of the client
+     */
     public int getInitialPort() {
         return initialPort;
     }
 
     /*
      * Getter of the ipAddress attribute
+     * @return the IP address of the client
      */
     public InetAddress getIpAddress() {
         return ipAddress;
@@ -44,9 +49,7 @@ public class Client {
     /*
      * Constructor of the client class in the case that the client doesn't specify
      * the server's port
-     *
      * @param serverName : name of the server
-     *
      * @param localAddress : IP of the client
      */
     public Client(String serverName, InetAddress localAddress) {
@@ -71,6 +74,11 @@ public class Client {
 
     }
 
+    /*
+     * Get the first available port between 45001 and 65535
+     * @return the first available port
+     * @return -1 if there is no available port
+     */
     private int getAvailablePort() {
         for (int port = 45001; port < 65535; port++) {
             if (!isPortInUse(port)) {
@@ -81,6 +89,11 @@ public class Client {
         return -1;
     }
 
+    /*
+     * Check if the port is already in use
+     * @param port : port to check
+     * @return true if the port is already in use
+     */
     private boolean isPortInUse(int port) {
         try {
             new ServerSocket(port).close();
@@ -112,10 +125,8 @@ public class Client {
     /*
      * Method that will display the menu to the user and ask him to enter a command
      * number between 1 and 4
-     *
      * @param buffIn : BufferedReader used to read the data that are received by the
      * server
-     *
      * @param pOut : PrintWriter used to send data to the server
      */
     public void menu(BufferedReader buffIn, PrintWriter pOut) {

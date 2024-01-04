@@ -23,6 +23,7 @@ public class ClientConnection {
 
     /*
      * Public constructor for the server class to set the server port
+     * @param serverPort : port of the server
      */
     private ClientConnection(int serverPort) {
         this.listeningPort = serverPort;
@@ -30,6 +31,8 @@ public class ClientConnection {
 
     /*
      * Method to get the server instance and create one if it doesn't exist
+     * @param serverPort : port of the server
+     * @return the server instance
      */
     public static ClientConnection getClientConnection(int serverPort){
         if (ClientConnectionInstance == null) {

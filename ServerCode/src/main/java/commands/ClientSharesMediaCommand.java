@@ -29,6 +29,8 @@ public class ClientSharesMediaCommand implements Command{
      * Constructor for the command to share media
      * @param pOut the output stream to the client
      * @param bufferIn the input stream from the client
+     * @param clientSocket the socket of the client
+     * @param server the server to execute the command on
      */
     public ClientSharesMediaCommand(PrintWriter pOut, BufferedReader bufferIn, Socket clientSocket, Server server) {
         this.pOut = pOut;

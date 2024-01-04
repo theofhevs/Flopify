@@ -14,8 +14,8 @@ import static main.Main.logger;
 
 
 /*
- * Server class to handle the server side of the application
- * 
+ * Server class to handle the server side of the application 
+ *  
  */
 public class Server {
     // Server port
@@ -35,6 +35,7 @@ public class Server {
 
     /*
      * Public constructor for the server class to set the server port
+     * @param serverPort the port on which the server will listen for incoming connections
      */
     public Server(int serverPort) {
         this.serverPort = serverPort;
@@ -42,6 +43,7 @@ public class Server {
 
     /*
      * Method to get the server instance and create one if it doesn't exist
+     * @return the server instance
      */
     public static Server getServer(){
         if (serverInstance == null) {
@@ -87,6 +89,11 @@ public class Server {
     public ArrayList<Music> getStoredSongs() {
         return storedSongs;
     }
+
+    /*
+     * Getter for the stored clients
+     * @return the stored clients
+     */
     public ArrayList<ClientConnected> getStoredClients() {
         return storedCLients;
     }
