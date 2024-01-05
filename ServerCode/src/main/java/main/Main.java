@@ -30,7 +30,7 @@ public class Main {
     public static String logPath = "./log/" + LocalDateTime.now().getYear() + "-" + LocalDateTime.now().getMonth() + "-serverLog.log";
 
     public static void main(String[] args) {
-        Server server = new Server(45000);
+    	Server server = new Server(45000);
         server.startServer();
 
     }
