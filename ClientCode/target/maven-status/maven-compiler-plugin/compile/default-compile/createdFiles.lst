@@ -1,5 +1,4 @@
 client\Client.class
-main\test.class
 commands\DisplayClients.class
 commands\CloseConnectionCommand.class
 commands\ShareMediaCommand.class
