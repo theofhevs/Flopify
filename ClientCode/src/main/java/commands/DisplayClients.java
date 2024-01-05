@@ -38,10 +38,9 @@ public class DisplayClients implements Command{
         try {
             int nbClients = Integer.parseInt(buffIn.readLine());
             System.out.println("There are " + nbClients + " clients connected to the server");
-            for (int i = 0; i < nbClients; i++) {
-                System.out.println("Client " + (i + 1) + ":");
-                System.out.println("IP address: " + buffIn.readLine());
-                System.out.println("Port: " + buffIn.readLine());
+            for (int i = 0; i < nbClients;i++) {
+                System.out.println(i+1 +" : Client ID : " + buffIn.readLine());
+
             }
 
             client.menu(buffIn, pOut);

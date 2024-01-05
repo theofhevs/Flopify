@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Level;
+import java.util.UUID;
 
 import static main.Main.logger;
 
@@ -17,6 +18,13 @@ public class ServerClientInteractions implements Runnable {
     private final Socket clientSocket;
 
     private Server server;
+
+    private  ClientConnected clientConnected;
+
+
+    public ClientConnected getClientConnected() {
+        return clientConnected;
+    }
 
     /*
      * Constructor for the server client interactions
@@ -83,14 +91,18 @@ public class ServerClientInteractions implements Runnable {
 
 
             int initialPort = Integer.parseInt(buffIn.readLine());
-            ClientConnected clientConnected = new ClientConnected(clientSocket.getInetAddress().toString(), clientSocket.getPort(), initialPort);
+
+            this.clientConnected = new ClientConnected(clientSocket.getInetAddress().toString().replace("/",""), clientSocket.getPort(), initialPort,clientSocket);
+            String clientName = UUID. randomUUID().toString();
+            clientConnected.setClientName(clientName);
             server.getStoredClients().add(clientConnected);
 
             // Perform server-side logic as needed
             menu(pOut, buffIn, clientSocket);
         } catch (Exception e) {
             logger.log(Level.WARNING, "Connection with " + clientSocket.getInetAddress().toString() + " lost");
-
+            server.getStoredClients().remove(clientConnected);
+            logger.log(Level.INFO, "Client  " + clientSocket.getInetAddress().toString() + " : " + clientSocket.getPort() + " is removed from the server list");
         }
     }
 

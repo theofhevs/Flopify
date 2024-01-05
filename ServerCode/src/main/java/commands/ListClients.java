@@ -41,8 +41,8 @@ public class ListClients implements  Command{
 
         //print all informations of the array list of songs
         for (int i = 0; i < server.getStoredClients().size(); i++) {
-            pOut.println(server.getStoredClients().get(i).getIpAddress());
-            pOut.println(server.getStoredClients().get(i).getPort());
+            pOut.println(server.getStoredClients().get(i).getClientName());
+
         }
 
         try {

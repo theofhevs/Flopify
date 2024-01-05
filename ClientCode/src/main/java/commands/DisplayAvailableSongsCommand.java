@@ -2,6 +2,7 @@ package commands;
 
 import PeerToPeer.ClientConnection;
 import client.Client;
+import javazoom.jl.decoder.BitstreamException;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -12,7 +13,6 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
-
 
 
 /**
@@ -55,8 +55,8 @@ public class DisplayAvailableSongsCommand implements Command {
 
             for (int i = 1; i <= numberOfSongs; i++) {
                 String musicName = buffIn.readLine();
-                String port = buffIn.readLine();
-                System.out.println(i + ": " + musicName + ", Port: " + port);
+                String ownerID = buffIn.readLine();
+                System.out.println(i + ": " + musicName + ", Owner ID : " + ownerID);
             }
 
             System.out.println(buffIn.readLine());
@@ -89,10 +89,13 @@ public class DisplayAvailableSongsCommand implements Command {
             // Get the path of the music and the port to connect from the server
             String musicPath = buffIn.readLine();
             int portToConnect = Integer.parseInt(buffIn.readLine());
-            System.out.println("Music path : " + musicPath);
-            System.out.println("Port to connect : " + portToConnect);
+            String ipToConnect = buffIn.readLine();
+            String clientID = buffIn.readLine();
 
-            var is = getInputStreamFromServer(portToConnect, musicPath, "127.0.0.1");
+            System.out.println("Music path : " + musicPath);
+            System.out.println("Music owner ID: " + clientID);
+
+            var is = getInputStreamFromServer(portToConnect, musicPath, ipToConnect);
             BufferedInputStream bis = new BufferedInputStream(is);
 
             // create the player to play the music
@@ -116,6 +119,8 @@ public class DisplayAvailableSongsCommand implements Command {
             e.printStackTrace();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        } catch (BitstreamException e) {
+            System.out.println("The music is stopped");
         } catch (JavaLayerException e) {
             throw new RuntimeException(e);
         }
@@ -146,7 +151,7 @@ public class DisplayAvailableSongsCommand implements Command {
 
 /*
  * Class that will listen the user input and stop the music if the user enter 'S'
- * 
+ *
  */
 class userInputThread implements Runnable {
     private boolean isMusicStopped = false;
@@ -228,7 +233,7 @@ class userInputThread implements Runnable {
     /*
      * Method that will stop the music and call the menu
      */
-    private void stopMusic(){
+    private void stopMusic() {
         System.out.println("Music stopped");
         player.close();
         pOut.println("done");

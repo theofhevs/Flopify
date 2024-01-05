@@ -53,7 +53,7 @@ public class ListSongs implements Command {
             //print all informations of the array list of songs
             for (int i = 0; i < server.getStoredSongs().size(); i++) {
                 pOut.println(server.getStoredSongs().get(i).getMusicName());
-                pOut.println(server.getStoredSongs().get(i).getPort());
+                pOut.println(server.getStoredSongs().get(i).getOwnerID());
             }
 
             // If there are no songs on the server, call the menu
@@ -75,6 +75,8 @@ public class ListSongs implements Command {
                     if (i + 1 == songNumber) {
                         pOut.println(server.getStoredSongs().get(i).getmusicPath());
                         pOut.println(server.getStoredSongs().get(i).getInitialPort());
+                        pOut.println(server.getStoredSongs().get(i).getIpAddress());
+                        pOut.println(server.getStoredSongs().get(i).getOwnerID());
                     }
 
                 }

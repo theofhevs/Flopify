@@ -1,5 +1,7 @@
 package server;
 
+import java.net.Socket;
+
 /*
  * Class to store the clients connected to the server
  */
@@ -8,6 +10,9 @@ public class ClientConnected {
     private String ipAddress;
     private int port;
     private int initialPort;
+    private String clientName;
+
+    private Socket clientSocket;
 
 
     /*
@@ -16,7 +21,8 @@ public class ClientConnected {
      * @param port the port of the client
      * @param initialPort the initial port of the client
      */
-    public ClientConnected(String ipAddress,int port,int initialPort) {
+    public ClientConnected(String ipAddress, int port, int initialPort, Socket clientSocket) {
+        this.clientSocket = clientSocket;
         this.ipAddress = ipAddress;
         this.port = port;
         this.initialPort = initialPort;
@@ -47,4 +53,14 @@ public class ClientConnected {
         return initialPort;
     }
 
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        if (this.clientName == null) {
+            this.clientName = clientName;
+
+        }
+    }
 }

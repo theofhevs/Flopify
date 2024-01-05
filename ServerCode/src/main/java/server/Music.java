@@ -8,6 +8,9 @@ public class Music {
 
     private int initialPort;
 
+    private ClientConnected owner;
+
+
     /*
      * Constructor for the class to store the music shared by the client
      * @param musicPath the path of the music
@@ -17,12 +20,17 @@ public class Music {
      * @param initialPort the initial port of the client
      * 
      */
-    public Music(String musicPath, String musicName, String ipAddress, String port, int initialPort) {
+    public Music(String musicPath, String musicName, String ipAddress, String port, int initialPort, ClientConnected owner) {
+        this.owner = owner;
         this.musicPath = musicPath;
         this.musicName = musicName;
         this.ipAddress = ipAddress;
         this.port = port;
         this.initialPort = initialPort;
+    }
+
+    public String getOwnerID() {
+        return owner.getClientName();
     }
 
     /*
@@ -54,7 +62,7 @@ public class Music {
      * @return the ip address of the client
      */
     public String getIpAddress() {
-        return ipAddress;
+        return owner.getIpAddress();
     }
 
     /*
