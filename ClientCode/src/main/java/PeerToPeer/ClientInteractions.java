@@ -2,7 +2,6 @@ package PeerToPeer;
 
 import java.io.*;
 import java.net.Socket;
-import java.nio.Buffer;
 
 /*
  * Class to handle the interactions between the client and the server
@@ -44,13 +43,11 @@ public class ClientInteractions implements Runnable {
     public void stream() {
         try {
             BufferedInputStream bis = new BufferedInputStream(new FileInputStream(musicPath));
-            DataOutputStream dos = new DataOutputStream(clientSocket.getOutputStream());
             OutputStream outStream = clientSocket.getOutputStream();
 
             byte[] buffer = new byte[4096];
             int bytesRead;
             
-
             // Wait 1 second to be sure that the client is ready to receive the music
             Thread.sleep(1000);
 

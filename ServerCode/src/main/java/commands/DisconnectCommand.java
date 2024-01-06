@@ -6,9 +6,7 @@ import server.Server;
 import server.ServerClientInteractions;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -19,12 +17,8 @@ import static main.Main.logger;
  * Command to disconnect the client from the server
  */
 public class DisconnectCommand implements Command {
-    private ServerClientInteractions serverClientInteractions;
-
     private Socket clientSocket;
     private Server server;
-
-    private PrintWriter pOut;
     private BufferedReader buffIn;
 
     /*
@@ -37,7 +31,7 @@ public class DisconnectCommand implements Command {
     public DisconnectCommand(PrintWriter pOut, BufferedReader buffIn, Socket clientSocket, Server server) {
         this.clientSocket = clientSocket;
         this.server = server;
-        this.pOut = pOut;
+        //this.pOut = pOut;
         this.buffIn = buffIn;
     }
 
@@ -47,8 +41,6 @@ public class DisconnectCommand implements Command {
      */
     @Override
     public void execute(ServerClientInteractions serverClientInteractions) {
-        this.serverClientInteractions = serverClientInteractions;
-
         try {
             int portToCompare = Integer.parseInt(buffIn.readLine());
             removeSongs(portToCompare);

@@ -1,16 +1,11 @@
 package commands;
 
-import PeerToPeer.ClientConnection;
 import client.Client;
 import javazoom.jl.decoder.BitstreamException;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import javazoom.jl.player.advanced.AdvancedPlayer;
-import javazoom.jl.player.advanced.PlaybackEvent;
-import javazoom.jl.player.advanced.PlaybackListener;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -21,7 +16,6 @@ import java.util.Scanner;
 public class DisplayAvailableSongsCommand implements Command {
     private final PrintWriter pOut;
     private final BufferedReader buffIn;
-    private Client client;
 
     /*
      * Constructor of the command that will set the input and output streams of the client
@@ -39,9 +33,6 @@ public class DisplayAvailableSongsCommand implements Command {
      */
     @Override
     public void execute(Client client) {
-        this.client = client;
-
-
         try {
             System.out.println();
             int numberOfSongs = Integer.parseInt(buffIn.readLine());
@@ -67,7 +58,6 @@ public class DisplayAvailableSongsCommand implements Command {
                 System.out.print("You must write y or n : ");
                 c = sc.next().charAt(0);
             }
-            ;
 
             pOut.println(c);
             if (c == 'n') {
@@ -154,23 +144,12 @@ public class DisplayAvailableSongsCommand implements Command {
  *
  */
 class userInputThread implements Runnable {
-    private boolean isMusicStopped = false;
-    private int stopped = 0;
-    private int total = 0;
-
-    private BufferedInputStream is;
-
-    private BufferedInputStream bufferedStream2;
-
+    
     private Player player;
 
     private Client client;
     private PrintWriter pOut;
     private BufferedReader buffIn;
-
-    private ByteArrayInputStream byteArrayInputStream;
-
-
     /*
      * Constructor of the userInputThread class
      * @param player : player that will play the music
@@ -181,8 +160,6 @@ class userInputThread implements Runnable {
      */
     public userInputThread(Player player, BufferedInputStream is, Client client, PrintWriter pOut, BufferedReader buffIn) throws IOException {
         this.player = player;
-        this.is = is;
-        this.total = is.available();
         this.client = client;
         this.pOut = pOut;
         this.buffIn = buffIn;
@@ -206,7 +183,6 @@ class userInputThread implements Runnable {
      * Method that will listen the user input and stop the music if the user enter 'S'
      */
     public void listenForUserInput() throws IOException, JavaLayerException {
-
         Scanner sc = new Scanner(System.in);
 
         char c;
@@ -226,8 +202,7 @@ class userInputThread implements Runnable {
                     break;
             }
         } while (c != 's' || c != 'S');
-
-
+        sc.close();
     }
 
     /*

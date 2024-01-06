@@ -13,7 +13,6 @@ public class Main {
             Client client2 = new Client("localhost", InetAddress.getLocalHost());
             client2.connectToServer();
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }

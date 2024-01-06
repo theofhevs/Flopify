@@ -32,12 +32,7 @@ public class Main {
     public static void main(String[] args) {
     	Server server = new Server(45000);
         server.startServer();
-
     }
-
-
-
-
 
     /**
      * static method to create the log file on the disk

@@ -9,10 +9,8 @@ import java.io.PrintWriter;
  * Command to display the clients connected to the server
  */
 public class DisplayClients implements Command{
-
     private final PrintWriter pOut;
     private final BufferedReader buffIn;
-    private Client client;
 
     /*
      * Constructor of the DisplayClients class
@@ -24,7 +22,6 @@ public class DisplayClients implements Command{
         this.buffIn = buffIn;
     }
 
-
     /*
      * Method that will execute the command on the client and display the clients connected to the server
      * @param client : client that will execute the command
@@ -32,9 +29,6 @@ public class DisplayClients implements Command{
      */
     @Override
     public void execute(Client client) {
-        this.client = client;
-
-
         try {
             int nbClients = Integer.parseInt(buffIn.readLine());
             System.out.println("There are " + nbClients + " clients connected to the server");

@@ -11,9 +11,6 @@ import client.Client;
  */
 public class CloseConnectionCommand implements Command {
     private final PrintWriter pOut;
-    private final BufferedReader buffIn;
-    private Client client;
-
 
     /*
      * Constructor of the CloseConnectionCommand class
@@ -22,7 +19,6 @@ public class CloseConnectionCommand implements Command {
      */
     public CloseConnectionCommand(PrintWriter pOut, BufferedReader buffIn) {
         this.pOut = pOut;
-        this.buffIn = buffIn;
     }
     
     /*
@@ -31,8 +27,6 @@ public class CloseConnectionCommand implements Command {
      */
     @Override
     public void execute(Client client) {
-        this.client = client;
-
         pOut.println(client.getInitialPort());
 
         System.out.println("Closing connection with the server");

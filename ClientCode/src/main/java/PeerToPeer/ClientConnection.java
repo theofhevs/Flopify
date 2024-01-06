@@ -1,9 +1,6 @@
 package PeerToPeer;
 import java.net.*;
 
-
-
-
 /*
  * Server class to handle the server side of the application
  * 

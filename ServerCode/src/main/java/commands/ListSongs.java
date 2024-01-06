@@ -3,7 +3,6 @@ package commands;
 import server.Server;
 import server.ServerClientInteractions;
 
-import javax.swing.table.TableRowSorter;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -16,7 +15,6 @@ import static main.Main.logger;
  *
  */
 public class ListSongs implements Command {
-    private ServerClientInteractions serverClientInteractions;
     private PrintWriter pOut;
     private BufferedReader buffIn;
     private Socket clientSocket;
@@ -43,13 +41,11 @@ public class ListSongs implements Command {
      */
     @Override
     public void execute(ServerClientInteractions serverClientInteractions) {
-        this.serverClientInteractions = serverClientInteractions;
         logger.log(Level.INFO, "Client " + clientSocket.getInetAddress() + " : " + clientSocket.getPort() + " List the available songs on the server");
 
 
         try {
             pOut.println(server.getStoredSongs().size());
-
             //print all informations of the array list of songs
             for (int i = 0; i < server.getStoredSongs().size(); i++) {
                 pOut.println(server.getStoredSongs().get(i).getMusicName());

@@ -18,9 +18,6 @@ public class ShareMediaCommand implements Command {
     private final BufferedReader buffIn;
 
     private  Socket clientSocket;
-
-    private Client client;
-
     /*
      * Constructor of the command that will set the input and output streams of the client
      * @param pOut : output stream of the client
@@ -40,8 +37,6 @@ public class ShareMediaCommand implements Command {
      */
     @Override
     public void execute(Client client) {
-        this.client = client;
-
         System.out.println("Executing ShareMediaCommand");
         try {
             System.out.println(buffIn.readLine());
@@ -65,8 +60,6 @@ public class ShareMediaCommand implements Command {
                     isValid = false;
                 }
             } while (!isValid);
-
-
 
             String songName = musicPath.substring(musicPath.lastIndexOf("\\")+1);
             System.out.println();

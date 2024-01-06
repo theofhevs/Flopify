@@ -4,7 +4,6 @@ import commands.*;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.UUID;
 
@@ -81,7 +80,6 @@ public class ServerClientInteractions implements Runnable {
     private void handleClientConnection(Socket clientSocket) {
         try {
             logger.log(Level.INFO, "Client  " + clientSocket.getInetAddress().toString() + " : " + clientSocket.getPort() + " is connected with the server");
-
 
             // buffIn is used to read data from the client
             BufferedReader buffIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));

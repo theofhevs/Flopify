@@ -11,7 +11,6 @@ import java.net.Socket;
  * Command to list all the clients connected to the server
  */
 public class ListClients implements  Command{
-    private ServerClientInteractions serverClientInteractions;
     private PrintWriter pOut;
     private BufferedReader buffIn;
     private Socket clientSocket;
@@ -34,8 +33,6 @@ public class ListClients implements  Command{
 
 
     public void execute(ServerClientInteractions serverClientInteractions) {
-        this.serverClientInteractions = serverClientInteractions;
-
         pOut.println(server.getStoredClients().size());
 
 

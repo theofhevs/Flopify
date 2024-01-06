@@ -12,9 +12,6 @@ public class ClientConnected {
     private int initialPort;
     private String clientName;
 
-    private Socket clientSocket;
-
-
     /*
      * Constructor for the class to store the clients connected to the server
      * @param ipAddress the ip address of the client
@@ -22,7 +19,6 @@ public class ClientConnected {
      * @param initialPort the initial port of the client
      */
     public ClientConnected(String ipAddress, int port, int initialPort, Socket clientSocket) {
-        this.clientSocket = clientSocket;
         this.ipAddress = ipAddress;
         this.port = port;
         this.initialPort = initialPort;

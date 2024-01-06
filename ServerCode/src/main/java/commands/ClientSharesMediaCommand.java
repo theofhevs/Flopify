@@ -7,7 +7,6 @@ import server.ServerClientInteractions;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Scanner;
 import java.util.logging.Level;
 
 import static main.Main.logger;
@@ -17,8 +16,6 @@ import static main.Main.logger;
  *
  */
 public class ClientSharesMediaCommand implements Command{
-    private ServerClientInteractions serverClientInteractions;
-
     private PrintWriter pOut;
     private BufferedReader buffIn;
 
@@ -47,7 +44,7 @@ public class ClientSharesMediaCommand implements Command{
      */
     @Override
     public void execute(ServerClientInteractions serverClientInteractions) {
-        this.serverClientInteractions = serverClientInteractions;
+        //this.serverClientInteractions = serverClientInteractions;
         try {
             pOut.println("Enter the full path of the song you want to share");
             
