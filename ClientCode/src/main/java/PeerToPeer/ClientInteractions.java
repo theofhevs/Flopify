@@ -25,8 +25,6 @@ public class ClientInteractions implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("Establishing a connection with " + clientSocket.getInetAddress())               ;
-
             // get music path
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String musicPath = in.readLine();
@@ -58,8 +56,7 @@ public class ClientInteractions implements Runnable {
             outStream.flush();
 
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-
+            // Error while streaming the music
         }
 
     }

@@ -43,7 +43,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <finalName>flopify-server</finalName>
+                    <finalName>VSFy-server</finalName>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>

@@ -76,8 +76,6 @@ public class DisconnectCommand implements Command {
 
     // Method to remove the client from the server
     private void removeClients(int portToCompare) {
-        try {
-
             // Delete all songs of the client based on the ip address
             ArrayList<ClientConnected> storedClients = server.getStoredClients();
             ArrayList<ClientConnected> clientsToRemove = new ArrayList<>();
@@ -90,8 +88,6 @@ public class DisconnectCommand implements Command {
                 }
             }
             logger.log(Level.INFO, "the client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort() + " has been removed");
-        } catch (Exception e) {
-            logger.log(Level.WARNING, "the client  " + clientSocket.getInetAddress() + " : " + clientSocket.getPort() + " can not be removed");
-        }
+       
     }
 }

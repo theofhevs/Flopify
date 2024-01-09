@@ -24,11 +24,11 @@ This application enables streaming of MP3 audio between two clients. It consists
 
 Once the jar files have been created for both server and client, open a new terminal in the folder where the jar of the server is located and do this command
 ```cmd
- java -jar .\VSfy-jar-with-dependencies.jar
+ java -jar .\VSFy-jar-with-dependencies.jar
 ```
 Now, do the same to run the client (in another teminal where the jar of the client is located)
 ```cmd
- java -jar .\VSfy-jar-with-dependencies.jar
+ java -jar .\VSFy-jar-with-dependencies.jar
 ```
 
 The client and the server should be running. You can go to the client side and discover the different features of the application.
