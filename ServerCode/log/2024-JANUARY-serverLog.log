@@ -1,0 +1,32 @@
+janv. 09, 2024 2:58:40 PM main.Main createLogFile
+INFO: Log registered in ./log/2024-JANUARY-serverLog.log
+janv. 09, 2024 2:58:40 PM server.Server startServer
+INFO: Server is starting on port 45000
+janv. 09, 2024 2:58:40 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+janv. 09, 2024 2:58:46 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 54680 is connected with the server
+janv. 09, 2024 2:59:12 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 54680 shared onlymp3.to - Battlefield 4 OFFICIAL MAIN THEME Extended --uEc8_dcYUc-192k-1703954297.mp3
+janv. 09, 2024 2:59:18 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 54680 List the available songs on the server
+janv. 09, 2024 2:59:48 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 54680
+janv. 09, 2024 3:16:54 PM main.Main createLogFile
+INFO: Log registered in ./log/2024-JANUARY-serverLog.log
+janv. 09, 2024 3:16:54 PM server.Server startServer
+INFO: Server is starting on port 45000
+janv. 09, 2024 3:16:54 PM server.Server startServer
+INFO: Server is now listening for incoming connections...
+janv. 09, 2024 3:16:59 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 54997 is connected with the server
+janv. 09, 2024 3:17:53 PM commands.ClientSharesMediaCommand execute
+WARNING: The music shared by  the client : /127.0.0.1 : 54997 can not be added to the server
+janv. 09, 2024 3:17:55 PM server.ServerClientInteractions handleClientConnection
+INFO: Client  /127.0.0.1 : 55006 is connected with the server
+janv. 09, 2024 3:17:59 PM commands.ClientSharesMediaCommand execute
+INFO: Client /127.0.0.1 : 55006 shared onlymp3.to - Pizzicato Playtime Comedy Background Music HD -g5j-6edFJKc-192k-1703954082.mp3
+janv. 09, 2024 3:18:00 PM commands.ListSongs execute
+INFO: Client /127.0.0.1 : 55006 List the available songs on the server
+janv. 09, 2024 3:22:04 PM commands.ListSongs execute
+WARNING: there's an error when sending available music to client : /127.0.0.1 : 55006

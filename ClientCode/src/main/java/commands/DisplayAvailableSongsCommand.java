@@ -78,11 +78,13 @@ public class DisplayAvailableSongsCommand implements Command {
 
             // Get the path of the music and the port to connect from the server
             String musicPath = buffIn.readLine();
+            String musicName = musicPath.substring(musicPath.lastIndexOf("\\")+1);
+
             int portToConnect = Integer.parseInt(buffIn.readLine());
             String ipToConnect = buffIn.readLine();
             String clientID = buffIn.readLine();
 
-            System.out.println("Music path : " + musicPath);
+            System.out.println("Music name : " + musicName);
             System.out.println("Music owner ID: " + clientID);
 
             var is = getInputStreamFromServer(portToConnect, musicPath, ipToConnect);
